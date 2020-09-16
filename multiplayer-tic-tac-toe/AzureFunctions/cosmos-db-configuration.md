@@ -11,7 +11,7 @@
 
 ## Description
 
-This guide contains the necessary pre-requisites and steps to follow for configuring the [Azure Cosmos DB][azure-cosmos-db] for using in this project along with the [Azure Functions project][AZF-project].
+This guide contains the necessary steps to configure an [Azure Cosmos DB][azure-cosmos-db] instance, and how to integrate it to the [Azure Functions project][AZF-project].
 
 ## Configuration
 
@@ -24,11 +24,8 @@ Before configuring this project, first ensure the following prerequisites have b
 ### Configuration steps
 
 1. Sign in into the [Azure Portal][azure-sign-in-page].
-
-1. Go to your *resource group*, and create an [Azure Cosmos DB account][azure-cosmos-db-account-create].
-
+1. Go to your resource group, and create an [Azure Cosmos DB account][azure-cosmos-db-account-create].
 1. Create the `PlayFabTicTacToe` database (you can follow [this guide][azure-cosmos-db-add-database-container]).
-
 1. Create the `MatchLobby` container in the just created database (you can follow [this guide][azure-cosmos-db-add-database-container]):
 
     > NOTE: set `/MatchLobbyId` as the [Partition Key][azure-cosmos-db-partitioning]. 
@@ -39,11 +36,11 @@ Before configuring this project, first ensure the following prerequisites have b
 
 ### Retrieve Cosmos DB connection string
 
-For retrieving the *connection string* of your *Azure Cosmos DB account*, follow the next steps:
+For retrieving the connection string of your Azure Cosmos DB account, follow the next steps:
 
 1. Sign in into the [Azure Portal][azure-sign-in-page].
-1. Go to your *resource group*, and select your *Azure Cosmos DB account*.
-1. Once your *Azure Cosmos DB account* page has been loaded, go to `Settings/Keys`, and then copy the content of the `Primary Connection String` textbox.
+1. Go to your resource group, and select your Azure Cosmos DB account.
+1. Once your Azure Cosmos DB account page has been loaded, go to `Settings/Keys`, and then copy the content of the `Primary Connection String` textbox.
 
     ---
 
