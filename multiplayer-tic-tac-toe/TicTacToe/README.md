@@ -30,7 +30,7 @@ Before configuring this project, first ensure the following prerequisites have b
 
 #### PlayFab settings
 
-The next steps will guide you for doing the [PlayFab][playfab-main-page] configuration:
+The following will guide you through the [PlayFab][playfab-main-page] configuration:
 
 1. Create a [PlayFab account][playfab-account-create] ([tutorial][playfab-account-create-tutorial]), or [sing-in][playfab-account-login] into your current account.
 1. Create a new [PlayFab Title][playfab-title-create-tutorial] in your [PlayFab account][playfab-account-login].
@@ -71,10 +71,10 @@ The next steps will guide you for doing the [PlayFab][playfab-main-page] configu
 #### Unity Project settings
 
 1. Install the [PlayFab Unity Package][playfab-sdk-download]:
-    1. Open the *Tic-Tac-Toe* Unity Project.
-    1. Navigate to the folder where you have saved the *PlayFab Unity Package* (it's the *.unitypackage* file).
+    1. Open the Tic-Tac-Toe Unity Project.
+    1. Navigate to the folder where you have saved the *PlayFab Unity Package* (it's the ".unitypackage" file).
     1. Double-click the *PlayFab Unity Package*.
-    1. The next prompt will be shown:
+    1. The following prompt will be shown:
 
     ---
 
@@ -84,7 +84,7 @@ The next steps will guide you for doing the [PlayFab][playfab-main-page] configu
 
     ---
 
-    5. Press the ***Import*** button to import these assets into the project.
+    5. Press the `Import` button to import these assets into the project.
 1. Configure the Unity project:
     1. First, go to your [PlayFab's Title][playfab-account-login] and retrieve your [PlayFab's title ID][playfab-title-get-title-id].
     1. Paste the *Title ID* in [this line][unity-constants-file-title-id] of the [Constants.cs][unity-constants-file] file.
