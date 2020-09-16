@@ -12,7 +12,7 @@
 
 ## Description
 
-This project has a set of [Azure Functions][azure-functions-main-page] used for managing the *Tic-Tac-Toe* sample's logic.
+This project has a set of [Azure Functions][azure-functions-main-page] used for managing the Tic-Tac-Toe sample's logic.
 
 ### Azure Function List
 
@@ -20,16 +20,16 @@ These are the current functions and their responsibilities:
 
 | Function | Responsibility | Link |
 | --- | --- | --- |
-| *CreateMatchLobby* | Allows us to create a *Match Lobby*, where two players will face each other. | [Link][CreateMatchLobby-AZF-source-code] |
-| *CreateSharedGroup* | Creates a PlayFab's *Shared Group*, where the Match information will be stored. | [Link][CreateSharedGroup-AZF-source-code] |
-| *DeleteMatchLobby* | Allows us to delete an existing *Match Lobby* from Cosmos DB. | [Link][DeleteMatchLobby-AZF-source-code] |
-| *DeleteSharedGroup* | Deletes an existing *Shared Group* | [Link][DeleteSharedGroup-AZF-Source-code] |
+| *CreateMatchLobby* | Allows us to create a Match Lobby, where two players will face each other. | [Link][CreateMatchLobby-AZF-source-code] |
+| *CreateSharedGroup* | Creates a PlayFab Shared Group, where the Match information will be stored. | [Link][CreateSharedGroup-AZF-source-code] |
+| *DeleteMatchLobby* | Allows us to delete an existing Match Lobby from Cosmos DB. | [Link][DeleteMatchLobby-AZF-source-code] |
+| *DeleteSharedGroup* | Deletes an existing Shared Group | [Link][DeleteSharedGroup-AZF-Source-code] |
 | *GetGameStatus* | Returns the game's status. | [Link][GetGameStatus-AZF-source-code] |
-| *GetSharedGroup* | Returns the information stored in an existing *Shared Group*, given its Id. | [Link][GetSharedGroup-AZF-source-code] |
-| *JoinMatch* | Adds a player into an existing Match. This is used when playing a *Quick match*. | [Link][JoinMatch-AZF-source-code] |
-| *JoinMatchLobby* | Adds an player to an specific *Match Lobby*. | [Link][JoinMatchLobby-AZF-source-code] |
-| *MakeMultiplayerMove* | Process game's moves in a multiplayer game. | [Link][MakeMultiplayerMove-AZF-source-code] |
-| *SearchMatchLobbies* | Performs a *Match Lobby* search, based in their names and Ids. | [Link][SearchMatchlobbies-AZF-source-code] |
+| *GetSharedGroup* | Returns the information stored in an existing Shared Group, given its ID. | [Link][GetSharedGroup-AZF-source-code] |
+| *JoinMatch* | Adds a player into an existing Match. This is used when playing a Quick match. | [Link][JoinMatch-AZF-source-code] |
+| *JoinMatchLobby* | Adds a player to an specific Match Lobby. | [Link][JoinMatchLobby-AZF-source-code] |
+| *MakeMultiplayerMove* | Process game moves in a multiplayer game. | [Link][MakeMultiplayerMove-AZF-source-code] |
+| *SearchMatchLobbies* | Performs a Match Lobby search, based in their names and IDs. | [Link][SearchMatchlobbies-AZF-source-code] |
 | *SetGameWinner* | Sets a player as the winner of a match. | [Link][SetGameWinner-AZF-source-code] |
 | *StartMatch* | Starts a multiplayer match. | [Link][StartMatch-AZF-source-code] |
 
@@ -48,27 +48,27 @@ Before configuring this project, first ensure the following prerequisites have b
 
 ### Configuration steps
 
-Follow up the next steps for configuring this project to run in an *Azure environment*:
+Follow up the next steps for configuring this project to run in an Azure environment:
 
-1. First, retrieve the next information from your *PlayFab Title*, as we'll be using them later:
+1. First, retrieve the next information from your PlayFab Title, as we'll be using them later:
     1. Retrieve your [PlayFab's title ID][playfab-title-get-title-id].
     1. Retrieve your [Title's developer secret key][playfab-title-get-developer-secret-key].
-1. Create an *Azure Function app* in your [Azure personal account][azure-sign-in-page] following [this guide][azure-function-app-create-portal].
-1. Add the next *application settings* in your function app (you can follow up [this guide][azure-function-app-settings]):
+1. Create an Azure Function app in your [Azure personal account][azure-sign-in-page] following [this guide][azure-function-app-create-portal].
+1. Add the next application settings in your function app (you can follow up [this guide][azure-function-app-settings]):
     1. **PLAYFAB_TITLE_ID**: configure it with your [PlayFab's title ID][playfab-title-get-title-id].
     1. **PLAYFAB_DEV_SECRET_KEY**: configure it with your [Title's developer secret key][playfab-title-get-developer-secret-key].
     1. **PlayFabTicTacToeCosmosDB**: retrieve your [AZ CosmosDB connection string][cosmos-db-config].
-1. Open the [TicTacToeFunctions project][AZF-project] using *Visual Studio* or *Visual Studio Code*.
-1. Publish the [TicTacToeFunctions project][AZF-project] in your *Azure Function App*:
-    1. If your are using *Visual Studio*, follow [this guide][azf-publish-from-vs].
-    1. If your are using *Visual Studio Code*, follow [this guide][azf-publish-from-vs-code].
-1. Enable [CORS][azure-function-app-cors] in your *Azure Function APP* from the Azure Portal (you can follow [this guide][azure-function-app-cors-portal-config]).
+1. Open the [TicTacToeFunctions project][AZF-project] using Visual Studio or Visual Studio Code.
+1. Publish the [TicTacToeFunctions project][AZF-project] in your Azure Function App:
+    1. If your are using Visual Studio, follow [this guide][azf-publish-from-vs].
+    1. If your are using Visual Studio Code, follow [this guide][azf-publish-from-vs-code].
+1. Enable [CORS][azure-function-app-cors] in your Azure Function APP from the Azure Portal (you can follow [this guide][azure-function-app-cors-portal-config]).
 
     > NOTE: The enable all possible domains, you can use the `*` wildcard.
 
 #### Retrieve Azure Functions URLs
 
-For getting your *Azure Functions URLs*, following the first steps of [this tutorial][azure-function-test-get-url].
+For getting your Azure Functions URLs, following the first steps of [this tutorial][azure-function-test-get-url].
 
 ## Technologies
 
