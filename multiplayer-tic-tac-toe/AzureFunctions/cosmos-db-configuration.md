@@ -1,22 +1,28 @@
 # Cosmos DB configuration
 
 ## Index
+
 * [Description][description]
 * [Configuration][configuration]
-    * [Pre-requisites][pre-requisites]
-    * [Configuration steps][configuration-steps]
-        * [Retrieve Cosmos DB connection string][get-connection-string]
+  * [Pre-requisites][pre-requisites]
+  * [Configuration steps][configuration-steps]
+    * [Retrieve Cosmos DB connection string][get-connection-string]
 * [Technologies][technologies]
 
 ## Description
+
 This guide contains the necessary pre-requisites and steps to follow for configuring the [Azure Cosmos DB][azure-cosmos-db] for using in this project along with the [Azure Functions project][AZF-project].
 
 ## Configuration
+
 ### Pre-requisites
-Before starting with the *Azure Cosmos DB* configuration, ensure you have completed the next pre-requisites:
+
+Before configuring this project, first ensure the following prerequisites have been completed:
+
 * Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
 
 ### Configuration steps
+
 1. Sign in into the [Azure Portal][azure-sign-in-page].
 
 1. Go to your *resource group*, and create an [Azure Cosmos DB account][azure-cosmos-db-account-create].
@@ -32,7 +38,9 @@ Before starting with the *Azure Cosmos DB* configuration, ensure you have comple
     > NOTE: The enable all possible domains, you can use the `*` wildcard.
 
 ### Retrieve Cosmos DB connection string
+
 For retrieving the *connection string* of your *Azure Cosmos DB account*, follow the next steps:
+
 1. Sign in into the [Azure Portal][azure-sign-in-page].
 1. Go to your *resource group*, and select your *Azure Cosmos DB account*.
 1. Once your *Azure Cosmos DB account* page has been loaded, go to `Settings/Keys`, and then copy the content of the `Primary Connection String` textbox.
@@ -46,6 +54,7 @@ For retrieving the *connection string* of your *Azure Cosmos DB account*, follow
     ---
 
 ## Technologies
+
 * [Azure Services][azure-main-page]
 * [Azure Cosmos DB][azure-cosmos-db] ([Documentation's main page][azure-cosmos-db-doc-page])
 

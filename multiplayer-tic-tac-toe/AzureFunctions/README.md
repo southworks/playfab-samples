@@ -1,18 +1,21 @@
 # Tic-Tac-Toe Azure Functions
 
 ## Index
+
 * [Description][description]
-    * [Azure Functions list][az-function-list]
+  * [Azure Functions list][az-function-list]
 * [Configuration][configuration]
-    * [Pre-requisites][pre-requisites]
-    * [Configuration steps][configuration-steps]
-        * [Retrieve Azure Functions URLs][get-az-function-urls]
+  * [Pre-requisites][pre-requisites]
+  * [Configuration steps][configuration-steps]
+    * [Retrieve Azure Functions URLs][get-az-function-urls]
 * [Technologies][technologies]
 
 ## Description
+
 This project has a set of [Azure Functions][azure-functions-main-page] used for managing the *Tic-Tac-Toe* sample's logic.
 
 ### Azure Function List
+
 These are the current functions and their responsibilities:
 
 | Function | Responsibility | Link |
@@ -31,8 +34,11 @@ These are the current functions and their responsibilities:
 | *StartMatch* | Starts a multiplayer match. | [Link][StartMatch-AZF-source-code] |
 
 ## Configuration
+
 ### Pre-requisites
-Before configuring this project, first ensure you have completed the next pre-requisites:
+
+Before configuring this project, first ensure the following prerequisites have been completed:
+
 * Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
 * Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
 * Create a [PlayFab account][playfab-account-create] ([tutorial][playfab-account-create-tutorial]), or [sing-in][playfab-account-login] into your current account.
@@ -41,7 +47,9 @@ Before configuring this project, first ensure you have completed the next pre-re
 * Read and complete the [Azure Cosmos DB configuration][cosmos-db-readme].
 
 ### Configuration steps
+
 Follow up the next steps for configuring this project to run in an *Azure environment*:
+
 1. First, retrieve the next information from your *PlayFab Title*, as we'll be using them later:
     1. Retrieve your [PlayFab's title ID][playfab-title-get-title-id].
     1. Retrieve your [Title's developer secret key][playfab-title-get-developer-secret-key].
@@ -59,14 +67,15 @@ Follow up the next steps for configuring this project to run in an *Azure enviro
     > NOTE: The enable all possible domains, you can use the `*` wildcard.
 
 #### Retrieve Azure Functions URLs
+
 For getting your *Azure Functions URLs*, following the first steps of [this tutorial][azure-function-test-get-url].
 
 ## Technologies
+
 * [Azure Services][azure-main-page]
 * [Azure Functions][azure-functions-main-page] ([Documentation's main page][azure-function-documentation])
 * [PlayFab][playfab-main-page]
 * [Visual Studio][visual-studio-download]/[Visual Studio Code][visual-studio-code-download]
-
 
 [description]: #description
 [az-function-list]: #azure-function-list

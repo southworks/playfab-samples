@@ -2,18 +2,21 @@
 
 ## Index
 
-* [Summary][summary]
-* [Pre-requisites][pre-requisites]
-* [Architecture][architecture]
-* [Implementation][implementation]
-    * [Unity Game: Starts the connection process][unity-game-starts-the-connection-process]
-    * [Azure Function App: JoinMatchLobby function][azure-function-app-joinmatchlobby-function]
+- [Summary][summary]
+- [Pre-requisites][pre-requisites]
+- [Architecture][architecture]
+- [Implementation][implementation]
+  - [Unity Game: Starts the connection process][unity-game-starts-the-connection-process]
+  - [Azure Function App: JoinMatchLobby function][azure-function-app-joinmatchlobby-function]
 
 ## Summary
 
 This sample demonstrates how to implement the Join Match Lobby feature. It allows a player (known as Player 2) to connect to an existing *Match Lobby* in order to play against another player.
 
 ## Pre-requisites
+
+Before configuring this project, first ensure the following prerequisites have been completed:
+
 - Read and complete the [PlayFab configuration][playfab-config-readme].
 - Read and complete the [Azure Function configuration][azure-function-config-readme].
 - Read and complete the [Cosmos DB configuration][cosmos-db-config-readme].
@@ -25,7 +28,7 @@ Before starting explaining how this feature works, lets see how the game was imp
 
 ---
 
-![](./document-assets/high-level-architecture.png)
+![High Level Architecture](./document-assets/high-level-architecture.png)
 
 ---
 
@@ -35,7 +38,7 @@ The implementation of the Match Lobby creation feature has the following steps:
 
 ---
 
-![](./document-assets/images/diagrams/join-diagram.png)
+![Join Match Diagram](./document-assets/images/diagrams/join-diagram.png)
 
 ---
 
@@ -66,17 +69,15 @@ The Azure Function [`JoinMatchLobby`][join-match-lobby] is responsible for:
 
 To add Player Two as a member of the Shared Group the [function sends a request][add-member-to-shared-group-data] to the [`/Server/AddSharedGroupMembers`][add-shared-group-members-endpoint] endpoint through the PlayFab's SDK. 
 
->  NOTE: The function must use the `MasterPlayerAccountId` - which is [retrieved from its context][retrieve-the-master-player-account-id-from-the-function-context] - as Player Two identifier.
+> NOTE: The function must use the `MasterPlayerAccountId` - which is [retrieved from its context][retrieve-the-master-player-account-id-from-the-function-context] - as Player Two identifier.
 
 To update the Shared Group Data the [function sends a request][update-the-shared-group-data] to the [`/Server/UpdateSharedGroupData`][update-shared-group-data-endpoint] endpoint through the PlayFab's SDK.
 
 Next, the current availability of the `MatchLobby` is decreased and its new state is [updated in Cosmos DB][insert-match-lobby-into-cosmos-db].
 
-Finally, the Shared Group Data is returned to the Game which starts the [Start Match][start-match-readme] process. 
-
+Finally, the Shared Group Data is returned to the Game which starts the [Start Match][start-match-readme] process.
 
 <!-- Index Links -->
-
 [summary]: #summary
 [pre-requisites]: #pre-requisites
 [architecture]: #architecture
@@ -85,7 +86,6 @@ Finally, the Shared Group Data is returned to the Game which starts the [Start M
 [azure-function-app-joinmatchlobby-function]: #azure-function-app-joinmatchlobby-function
 
 <!-- READMEs -->
-
 [search-match-lobby-readme]: ./search-match-lobby.md
 [playfab-config-readme]: ./TicTacToe/README.md
 [azure-function-config-readme]: ./AzureFunctions/README.md
@@ -93,7 +93,6 @@ Finally, the Shared Group Data is returned to the Game which starts the [Start M
 [start-match-readme]: ./start-match.md
 
 <!-- AZURE FUNCTIONS -->
-
 [join-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/JoinMatchLobby.cs
 [retrieving-the-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Util/SharedGroupDataUtil.cs#L66
 [add-member-to-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Util/SharedGroupDataUtil.cs#L28
@@ -102,11 +101,9 @@ Finally, the Shared Group Data is returned to the Game which starts the [Start M
 [retrieve-the-master-player-account-id-from-the-function-context]: ./AzureFunctions/TicTacToeFunctions/Functions/JoinMatchLobby.cs#L28
 
 <!-- Game -->
-
 [match-lobby-handler]: ./TicTacToe/Assets/Scripts/Handlers/MatchlobbyHandler.cs#L21
 
 <!-- PlayFab References -->
-
 [playfab-sdk]: https://github.com/PlayFab/CSharpSDK
 [add-shared-group-members-endpoint]: https://docs.microsoft.com/rest/api/playfab/server/shared-group-data/addsharedgroupmembers?view=playfab-rest
 [update-shared-group-data-endpoint]: https://docs.microsoft.com/rest/api/playfab/server/shared-group-data/updatesharedgroupdata?view=playfab-rest

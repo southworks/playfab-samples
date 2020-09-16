@@ -17,12 +17,12 @@ This project consists in an [Unity][unity-main-page] Tic-Tac-Toe game with multi
 
 ### Pre-requisites
 
-Before configuring this project, first ensure you have completed the next pre-requisites:
+Before configuring this project, first ensure the following prerequisites have been completed:
 
 * Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
 * Download and install *Unity Hub* and *Unity* IDE ([link][unity-hub-download]).
 * Download the [PlayFab Unity Editor Extension Asset Package][playfab-sdk-download]
-    
+
     > NOTE: save the *.unitypackage* file in an accessible folder, as we'll be using it later
 * Read and complete the [Azure Function configuration][azure-function-readme].
 
@@ -50,7 +50,7 @@ The next steps will guide you for doing the [PlayFab][playfab-main-page] configu
     1. At the end, you'll have something like this: 
 
     ---
-    
+
     <p align="center">
       <img src="../document-assets/images/matchmaking-queue-01.png" />
     </p>
@@ -65,7 +65,7 @@ The next steps will guide you for doing the [PlayFab][playfab-main-page] configu
         1. Enter your `Function name`.
         1. Enter your `Function URL` 
         > NOTE: you can follow [this tutorial][azure-function-readme-get-url] to get the *Function's URL*
-        
+
         5. Press the `Register Function` button for saving the new function.
 
 #### Unity Project settings
@@ -77,11 +77,11 @@ The next steps will guide you for doing the [PlayFab][playfab-main-page] configu
     1. The next prompt will be shown:
 
     ---
-    
+
     <p align="center">
       <img src="../document-assets/images/unity-package-import.png" />
     </p>
-    
+
     ---
 
     5. Press the ***Import*** button to import these assets into the project.

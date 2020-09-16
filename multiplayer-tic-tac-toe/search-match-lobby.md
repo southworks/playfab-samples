@@ -19,6 +19,8 @@ The ***Search Match Lobby*** feature allows players to look for an specific *Mat
 
 ## Pre-requisites
 
+Before configuring this project, first ensure the following prerequisites have been completed:
+
 * Read and complete the [PlayFab configuration][playfab-config-readme].
 * Read and complete the [Azure Function configuration][azure-function-config-readme].
 * Read and complete the [Cosmos DB configuration][cosmos-db-config-readme].
