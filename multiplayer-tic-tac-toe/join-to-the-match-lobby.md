@@ -11,7 +11,7 @@
 
 ## Summary
 
-This sample demonstrates how to implement the Join Match Lobby feature. It allows a player (known as Player 2) to connect to an existing *Match Lobby* in order to play against another player.
+This sample demonstrates how to implement the Join Match Lobby feature. It allows a player (known as Player 2) to connect to an existing match lobby in order to play against another player.
 
 ## Pre-requisites
 
@@ -34,7 +34,7 @@ Before starting explaining how this feature works, lets see how the game was imp
 
 ## Implementation
 
-The implementation of the Match Lobby creation feature has the following steps:
+The implementation of the Match Lobby creation feature consists of the following steps:
 
 ---
 
@@ -44,7 +44,7 @@ The implementation of the Match Lobby creation feature has the following steps:
 
 ### Unity Game: Starts the connection process
 
-The Unity Game is the first layer involved, once the game has [retrieved the Lobbies list][search-match-lobby-readme] the player clicks the "Join" button of the desired Match Lobby 
+The Unity Game is the first layer involved, once the game has [retrieved the Lobbies list][search-match-lobby-readme] the player clicks the `Join` button of the desired Match Lobby.
 
 ---
 
@@ -67,7 +67,7 @@ The Azure Function [`JoinMatchLobby`][join-match-lobby] is responsible for:
   - Sets the current player ID as the `PlayerTwoId` of the `Match` property.
 - [Updating][insert-match-lobby-into-cosmos-db] the new `MatchLobby` in Cosmos DB.
 
-To add Player Two as a member of the Shared Group the [function sends a request][add-member-to-shared-group-data] to the [`/Server/AddSharedGroupMembers`][add-shared-group-members-endpoint] endpoint through the PlayFab's SDK. 
+To add Player Two as a member of the Shared Group the [function sends a request][add-member-to-shared-group-data] to the [`/Server/AddSharedGroupMembers`][add-shared-group-members-endpoint] endpoint through the PlayFab's SDK.
 
 > NOTE: The function must use the `MasterPlayerAccountId` - which is [retrieved from its context][retrieve-the-master-player-account-id-from-the-function-context] - as Player Two identifier.
 
