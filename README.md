@@ -10,7 +10,7 @@ This repository contains complete working samples that demonstrate best-practice
 
 ### Multiplayer Tic-Tac-Toe
 
-The [Multiplayer Tic-Tac-Toe][multiplayer-tic-tac-toe] sample demonstrates how to configure a multiplayer Tic-Tac-Toe game using [Unity][unity-main-page], [PlayFab][playfab-website], and [Azure Services][azure-main-page].
+The [Multiplayer Tic-Tac-Toe][multiplayer-tic-tac-toe] sample demonstrates how to configure a multiplayer Tic-Tac-Toe game using [Unity][unity-main-page], [PlayFab][playfab-website], [Azure Services][azure-main-page] and [Cosmos DB][cosmos-db-doc].
 
 This project also has a set of specifics instructions on how to implement these features:
 
@@ -21,7 +21,7 @@ This project also has a set of specifics instructions on how to implement these 
 #### PlayFab Features
 
 - **Matchmaking Queues**. Used to match random players together.
-- **Shared Group**. Used to store the game state, and for manual matchmaking through Match Lobbies.
+- *Shared Group*. Used to store the game state, and for manual matchmaking through Match Lobbies.
 - **Basic Login**. Used to identify each game instance as a different user.
 
 ## Feedback

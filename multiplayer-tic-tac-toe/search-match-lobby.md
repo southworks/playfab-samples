@@ -15,7 +15,7 @@
 
 This document explains how the Search Match Lobby feature was implemented.
 
-This feature allows players to look for a specific Match Lobby, to which they'll be connecting for playing against another known player. We can filter these lobbies by their IDs or their Names.
+This feature allows players to look for a specific Match Lobby, to which they'll be connecting for playing against another known player. We can filter these lobbies by their *IDs* or their *Names*.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ The *Search Match Lobby* flow consists of six different steps:
 
 ### Unity Game: Starts the connection process
 
-The *Search Match Lobby* process starts when a Player enters a Match Lobby filter (*ID* or *name*) for finding a specific Lobby for playing against another Player.
+The *Search Match Lobby* process starts when a player enters a Match Lobby filter (*ID* or *Name*) for finding a specific Match Lobby for playing against another player.
 
 ---
 
@@ -102,7 +102,7 @@ public IEnumerator GetMatchLobbyList(string filter = "")
 }
 ```
 
-This method uses the PlayFab's CloudScript API for doing a request to an specific Azure Function (which implementation we'll explain later). The method receives the filter the Player 02 has input. With this data, we create an instance of the [SearchMatchLobbiesRequest][search-match-lobbies-request] class, which has the format that the [SearchMatchLobbies][azure-function-search-match-lobbies] Azure Function requires.
+This method uses the PlayFab's CloudScript API for doing a request to an specific Azure Function (which implementation we'll explain later). The method receives the filter the player has input. With this data, we create an instance of the [SearchMatchLobbiesRequest][search-match-lobbies-request] class, which has the format that the [SearchMatchLobbies][azure-function-search-match-lobbies] Azure Function requires.
 
 With all these classes we instantiate a new [ExecuteFunctionRequest][creating-instance-execute-function-request] object, which has the required format for executing the specified Azure Function through the PlayFab service. For sending this request, we call the `ExecuteFunction` method from the `PlayFabCloudScriptAPI` class from the [PlayFab SDK][unity-playfab-csharp-sdk] (see this document for further information on the [Execute Function API method][playfab-cloudscript-api-doc-execute-function]).
 

@@ -68,14 +68,14 @@ In this sample, PlayFab receives the requests to execute the Azure Functions wit
 The [CreateSharedGroup][create-shared-group-data] function creates the Shared Group Data (SGD) where the game data will be stored, with the [`TicTacToeSharedGroupData`][tictactoe-shared-group-data] model structure:
 
 - The Game Status: It contains the status of the board at each movement, the current player, and the winner.
-- The Match: It contains the Identifier of the Player One, and Two.
+- The Match: It contains the Identifier of the P1, and P2.
 - The Match Lobby: It contains the `MatchLobbyId`, that works also as its name, and the current availability.
 
 This function is responsible for:
 
 - Creates the Shared Group Data in PlayFab
-- Adds the Player who has triggered the function as a member of the group
-- Updates the SGD's `SharedGroupId` and `Match` attributes. The `SharedGroupId` is updated with the `id` return by PlayFab in the SGD creation, meanwhile the `Match` is updated in its `PlayerOnId` attribute with the `id`  of the Player who has triggered the function.
+- Adds the player who has triggered the function as a member of the group
+- Updates the SGD's `SharedGroupId` and `Match` attributes. The `SharedGroupId` is updated with the `ID` return by PlayFab in the SGD creation, meanwhile the `Match` is updated in its `PlayerOnId` attribute with the `ID` of the player who has triggered the function.
 
 ### Azure Function App: CreateMatchLobby function
 

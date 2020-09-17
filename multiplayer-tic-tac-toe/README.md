@@ -78,7 +78,7 @@ For more detailed information regarding on how multiplayer was added to the Tic-
 
 Once the game is ready to receive the players, we can add the possibility to create, list and join Match Lobbies, allowing players to manually match with each other.
 
- Match Lobby management involves four layers: the Unity game, PlayFab service, Azure Function, and Cosmos DB.
+Match Lobby management involves four layers: the Unity game, PlayFab service, Azure Function, and Cosmos DB.
 
 ---
 
@@ -100,11 +100,11 @@ In this sample, every time a player creates a Match Lobby, it will add the Match
 
 ---
 
-The player that created the lobby will poll the Match Lobby state until another player has joined.
+The player that created the Match Lobby will poll the its state until another player has joined.
 
-When another player joins a lobby, it will update the SGD with the player’s data, and the game will start automatically.
+When another player joins a Match Lobby, it will update the SGD with the player’s data, and the game will start automatically.
 
-Match Lobby data will be deleted from Cosmos DB as soon as the match starts. If a third player tries to create a lobby with the same name, PlayFab will not allow it, since there cannot be two shared group data instances with the same ID.
+Match Lobby data will be deleted from Cosmos DB as soon as the match starts. If a third player tries to create a Match Lobby with the same name, PlayFab will not allow it, since there cannot be two Shared Group Data instances with the same ID.
 
 ### Match Lobby feature detailed documentation
 

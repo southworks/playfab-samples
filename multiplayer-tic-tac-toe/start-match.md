@@ -12,7 +12,7 @@
 
 This document explains how the Start Match flow was designed.
 
-This flow is the step that links the Lobby scene with the Game scene, and makes sure players are ready to play the match.
+This flow is the step that links the `Lobby` scene with the `Game` scene, and makes sure players are ready to play the match.
 
 There are 4 scenarios where players can trigger this logic:
 

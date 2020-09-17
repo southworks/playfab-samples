@@ -36,8 +36,8 @@ Before starting explaining how this feature works, lets see how the game was imp
 
 Regarding the ***Quick Match*** feature, we can add the next information:
 
-- *Tic-Tac-Toe game*: this is implemented in [this project][unity-game-project]. Here we've the *Quick Match option*, where we can start a *Match*.
-- *Tic-Tac-Toe Function App*: we've implemented this [here][azure-function-project].
+- Tic-Tac-Toe game: this is implemented in [this project][unity-game-project]. Here we've the *Quick Match* button, where players can start a match.
+- Tic-Tac-Toe Function App: we've implemented this [here][azure-function-project].
 
 ## Prerequisites
 
@@ -60,14 +60,14 @@ Before configuring this project, first ensure the following prerequisites have b
 The *P1's Quick Match* implementation is a three part process:
 
 1. The first part consists of *Step 01 to Step 03*. Here the P1 creates a [*Matchmaking Ticket*][playfab-matchmaking-documentation] for starting a match against a random player, and then polls the PlayFab's services to get the Ticket status until a match has been assigned.
-1. The second part includes *Steps 04 to 09*. The *Tic-Tac-Toe* game, using the [*CreateSharedGroup*][azf-create-shared-group] Azure Function, creates a [*Shared Group*][playfab-shared-group-documentation] using the PlayFab's Services, in order to have a storage where the Game's Data will be stored later. After creating it, the Azure Function returns the *Shared Group's Data* to the *Tic-Tac-Toe* game for using it in further steps.
+1. The second part includes *Steps 04 to 09*. The *Tic-Tac-Toe* game, using the [*CreateSharedGroup*][azf-create-shared-group] Azure Function, creates a [Shared Group][playfab-shared-group-documentation] using the PlayFab's Services, in order to have a storage where the Game's Data will be stored later. After creating it, the Azure Function returns the *Shared Group Data* to the Tic-Tac-Toe game for using it in further steps.
 1. The last part consists in the *Step 10*, where the *Tic-Tac-Toe* game starts the [Start Match process][start-match-flow].
 
 #### Unity Game - P1
 
 ##### Matchmaking Ticket Creation - P1
 
-The process starts when the P1 press the *Quick match* button.
+The process starts when the P1 press the `Quick match` button.
 
 ---
 
@@ -79,17 +79,17 @@ The process starts when the P1 press the *Quick match* button.
 
 Then, we use the [Matchmaking Handler][ttt-matchmaking-handler] for creating a [Matchmaking Ticket][playfab-matchmaking-documentation].
 
-In this we use the *PlayFab's API* for creating the Matchmaking Ticket ([link][playfab-api-create-matchmaking-ticket]), setting all the necessary request's properties using the *QueueConfiguration* object we set when creating the current MatchmakingHandler class (check this [here][ttt-lobby-file-create-matchmaking-handler]).
+In this step, we use the PlayFab's API for creating the Matchmaking Ticket ([link][playfab-api-create-matchmaking-ticket]), setting all the necessary request's properties using the *QueueConfiguration* object we set when creating the current MatchmakingHandler class (check this [here][ttt-lobby-file-create-matchmaking-handler]).
 
 ##### Getting the Matchmaking Ticket Status - P1
 
-In the next step, we poll the ticket status using the [EnsureGetMatchmakingTicketStatus][ttt-matchmaking-handler-ensure-get-matchmaking-ticket-status] method from the [MatchmakingHandler][ttt-matchmaking-handler] class. This method uses the [GetMatchmakingTicketStatus][ttt-matchmaking-handler-get-matchmaking-ticket-status] method from the same class, where we call the [GetMatchmakingTicket][playfab-api-get-matchmaking-ticket-status] PlayFab API's method for getting the Ticket's information, where the *Status* is included.
+In the next step, we poll the ticket status using the [EnsureGetMatchmakingTicketStatus][ttt-matchmaking-handler-ensure-get-matchmaking-ticket-status] method from the [MatchmakingHandler][ttt-matchmaking-handler] class. This method uses the [GetMatchmakingTicketStatus][ttt-matchmaking-handler-get-matchmaking-ticket-status] method from the same class, where we call the [GetMatchmakingTicket][playfab-api-get-matchmaking-ticket-status] PlayFab API's method for getting the Ticket's information, where the *Ticket Status* is included.
 
 Something important to mention here is that the [GetMatchmakingTicket][playfab-api-get-matchmaking-ticket-status] API's method has a *time-polling constraint* of 10 polls per minute (i.e., *one every 6 seconds*). Due to this, we have added [this condition][ttt-matchmaking-handler-ensure-get-matchmaking-ticket-status-constraint] in the [EnsureGetMatchmakingTicketStatus][ttt-matchmaking-handler-ensure-get-matchmaking-ticket-status] method. You can read more about this [here][playfab-api-get-status-notes].
 
 ##### Creating Shared Group - P1
 
-Once we've ensured there is a match, the Tic-Tac-Toe game determines if we're the first player to play (P1) using [this method][ttt-lobby-file-is-first-player-to-play]. In case it's true, we'll be in charge of creating the Shared Group the game will be using later for storing its information. For doing so, we'll be using the [Create][shared-group-handler-create] method from the [Shared Group Handler][shared-group-handler] class. This method allows us to perform a request to the [CreateSharedGroup][azf-create-shared-group] Azure Function, which purpose we'll be explaining later.
+Once we've ensured there is a match, the Tic-Tac-Toe game determines if we're the first player to play (P1) using [this method][ttt-lobby-file-is-first-player-to-play]. In case it's true, we'll be in charge of creating the Shared Group the game will be using later for storing its information. For doing so, we'll be using the [Create][shared-group-handler-create] method from the [Shared Group Handler][shared-group-handler] class. This method allows us to perform a request to the [CreateSharedGroup][azf-create-shared-group] Azure Function, which purpose is explained [here][azure-function-app-createsharedgroup-function].
 
 This is the implementation of the [Create][shared-group-handler-create] method:
 
@@ -119,9 +119,9 @@ public IEnumerator Create(string sharedGroupId)
 
 #### Azure Function App: CreateSharedGroup Function
 
-One of the Azure Functions we use in this process is the [CreateSharedGroup][azf-create-shared-group] Azure Function, which allows us to create a Shared Group in the PlayFab's service, add the current player as a Shared Group member, and update and return the Shared Group data.
+One of the Azure Functions we use in this process is the [CreateSharedGroup][azf-create-shared-group] Azure Function, which allows us to create a Shared Group in the PlayFab's service, add the current player as a Shared Group member, and update and return the Shared Group Data.
 
-This is the current Function's implementation:
+This is the implementation of the [CreateSharedGroup][azf-create-shared-group] Azure Function:
 
 ```csharp
 [FunctionName("CreateSharedGroup")]
@@ -159,9 +159,9 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 
 #### Azure Function App: GetSharedGroup Function
 
-The other function we're using in this process is the [GetSharedGroup][azf-get-shared-group] Azure Function, which allows us to retrieve the information stored in the *Shared Group*.
+The other function we're using in this process is the [GetSharedGroup][azf-get-shared-group] Azure Function, which allows us to retrieve the data stored in the Shared Group instance.
 
-This is the current implementation:
+This is the implementation of the [GetSharedGroup][azf-get-shared-group] Azure Function:
 
 ```csharp
 [FunctionName("GetSharedGroup")]
@@ -189,27 +189,29 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 
 The *P2 Quick Match* follows a three part process:
 
-1. The first part consists in the *Step 01 to Step 03*. Here, P2 creates a [*Matchmaking Ticket*][playfab-matchmaking-documentation] for starting a match against a random player, and then polls the PlayFab's services to get the ticket status, until a match has been assigned.
-1. The second part includes the *Steps 04 to 07*. In this part, the *Tic-Tac-Toe* game, using the [*JoinMatch*][azf-join-match] Azure Function, adds the player to the current [match][azf-model-Match] as P2, and returns an updated [TicTacToeSharedGroupData][azf-model-ttt-shared-group-data] object for use in further steps.
+1. The first part consists in the *Step 01 to Step 03*. Here, P2 creates a [*Matchmaking Ticket*][playfab-matchmaking-documentation] for starting a match against a random player, and then polls the PlayFab's services to get the Ticket's status, until a match has been assigned.
+1. The second part includes the *Steps 04 to 07*. In this part, the *Tic-Tac-Toe* game triggers the [*JoinMatch*][azf-join-match] Azure Function to add the player to the current [match][azf-model-Match] as P2, and returns an updated [TicTacToeSharedGroupData][azf-model-ttt-shared-group-data] object for use in further steps.
 1. The last part consists in the *Step 08*, where the *Tic-Tac-Toe* game starts the [Start Match process][start-match-flow].
 
 #### Unity Game - P2
 
 ##### Matchmaking Ticket Creation - P2
 
-This is implemented in the same way as the P1 process. You can check it [here][matchmaking-ticket-creation]
+This is implemented in the same way as the P1 process. You can check it [here][matchmaking-ticket-creation---p1]
 
 ##### Getting the Matchmaking Ticket Status - P2
 
-This is implemented in the same way as for the P1 process. You can check it [here][get-matchmaking-ticket-status].
+This is implemented in the same way as for the P1 process. You can check it [here][getting-the-matchmaking-ticket-status---p1].
 
 ##### Joining to the Share Group - P2
 
-The next step consists in joining into an existing *Match*. For doing this, we are using the [JoinMatch][match-handler-join-match] method from the [MatchHandler][match-handler] class. This allows us to perform request calls to the [JoinMatch][azf-join-match] Azure Function (which we'll explain later).
+The next step consists in joining into an existing Match. For doing this, we are using the [JoinMatch][match-handler-join-match] method from the [MatchHandler][match-handler] class. This allows us to perform request calls to the [JoinMatch][azf-join-match] Azure Function (which we'll explain later).
 
 #### Azure Function App: Join Match Function
 
-With [this][azf-join-match] function we are able to join the P2 to an existing *Shared Group*.
+With [this][azf-join-match] function we are able to join the P2 to an existing Shared Group.
+
+This is the implementation of the [JoinMatch][azf-join-match] Azure Function:
 
 ```csharp
 [FunctionName("JoinMatch")]
@@ -234,6 +236,7 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 [playfab-config-readme]: ./TicTacToe/README.md
 [azure-function-config-readme]: ./AzureFunctions/README.md
 [cosmos-db-config-readme]: ./AzureFunctions/cosmos-db-configuration.md
+[start-match-flow]: ./start-match.md
 
 <!-- IMAGES -->
 [architecture-01]: ./document-assets/high-level-architecture.png
