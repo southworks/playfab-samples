@@ -1,41 +1,46 @@
 # Cosmos DB configuration
 
 ## Index
-* [Description][description]
-* [Configuration][configuration]
-    * [Pre-requisites][pre-requisites]
-    * [Configuration steps][configuration-steps]
-        * [Retrieve Cosmos DB connection string][get-connection-string]
-* [Technologies][technologies]
+
+- [Description][description]
+- [Configuration][configuration]
+  - [Prerequisites][prerequisites]
+  - [Configuration steps][configuration-steps]
+    - [Retrieve Cosmos DB connection string][get-connection-string]
+- [Technologies][technologies]
 
 ## Description
-This guide contains the necessary pre-requisites and steps to follow for configuring the [Azure Cosmos DB][azure-cosmos-db] for using in this project along with the [Azure Functions project][AZF-project].
+
+This guide contains the necessary steps to configure an [Azure Cosmos DB][azure-cosmos-db] instance, and how to integrate it to the [Azure Functions project][AZF-project].
 
 ## Configuration
-### Pre-requisites
-Before starting with the *Azure Cosmos DB* configuration, ensure you have completed the next pre-requisites:
-* Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
+
+### Prerequisites
+
+Before configuring this project, first ensure the following prerequisites have been completed:
+
+- Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
 
 ### Configuration steps
+
 1. Sign in into the [Azure Portal][azure-sign-in-page].
-
-1. Go to your *resource group*, and create an [Azure Cosmos DB account][azure-cosmos-db-account-create].
-
+1. Go to your resource group, and create an [Azure Cosmos DB account][azure-cosmos-db-account-create].
 1. Create the `PlayFabTicTacToe` database (you can follow [this guide][azure-cosmos-db-add-database-container]).
-
 1. Create the `MatchLobby` container in the just created database (you can follow [this guide][azure-cosmos-db-add-database-container]):
 
-    > NOTE: set `/MatchLobbyId` as the [Partition Key][azure-cosmos-db-partitioning]. 
+    > NOTE: set `/MatchLobbyId` as the [Partition Key][azure-cosmos-db-partitioning].
 
 1. Configure [CORS][azure-cosmos-db-cors] from the [Azure Portal][azure-sign-in-page] following [this guide][azure-cosmos-db-cors-portal-config].
 
     > NOTE: The enable all possible domains, you can use the `*` wildcard.
 
 ### Retrieve Cosmos DB connection string
-For retrieving the *connection string* of your *Azure Cosmos DB account*, follow the next steps:
+
+For retrieving the connection string of your Azure Cosmos DB account, follow the next steps:
+
 1. Sign in into the [Azure Portal][azure-sign-in-page].
-1. Go to your *resource group*, and select your *Azure Cosmos DB account*.
-1. Once your *Azure Cosmos DB account* page has been loaded, go to `Settings/Keys`, and then copy the content of the `Primary Connection String` textbox.
+1. Go to your resource group, and select your Azure Cosmos DB account.
+1. Once your Azure Cosmos DB account page has been loaded, go to `Settings/Keys`, and then copy the content of the `Primary Connection String` textbox.
 
     ---
 
@@ -46,12 +51,13 @@ For retrieving the *connection string* of your *Azure Cosmos DB account*, follow
     ---
 
 ## Technologies
-* [Azure Services][azure-main-page]
-* [Azure Cosmos DB][azure-cosmos-db] ([Documentation's main page][azure-cosmos-db-doc-page])
+
+- [Azure Services][azure-main-page]
+- [Azure Cosmos DB][azure-cosmos-db] ([Documentation's main page][azure-cosmos-db-doc-page])
 
 [description]: #description
 [configuration]: #configuration
-[pre-requisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [configuration-steps]: #configuration-steps
 [get-connection-string]: #retrieve-cosmos-db-connection-string
 [technologies]: #technologies

@@ -10,13 +10,13 @@ This repository contains complete working samples that demonstrate best-practice
 
 ### Multiplayer Tic-Tac-Toe
 
-The [Multiplayer Tic-Tac-Toe][multiplayer-tic-tac-toe] sample demonstrates how to configure a multiplayer Tic-Tac-Toe game using [Unity][unity-main-page], [PlayFab][playfab-website], and [Azure Services][azure-main-page].
+The [Multiplayer Tic-Tac-Toe][multiplayer-tic-tac-toe] sample demonstrates how to configure a multiplayer Tic-Tac-Toe game using [Unity][unity-main-page], [PlayFab][playfab-website], [Azure Services][azure-main-page] and [Cosmos DB][cosmos-db-doc].
 
 This project also has a set of specifics instructions on how to implement these features:
 
 - How to turn a single player game into multiplayer.
 - How to support Match Lobbies in a multiplayer game.
-  - This includes an integration with [Cosmos DB][cosmos-db-doc] to support match lobby listing.
+  - This includes an integration with [Cosmos DB][cosmos-db-doc] to support Match Lobby listing.
 
 #### PlayFab Features
 
