@@ -4,7 +4,7 @@
 
 - [Summary][summary]
 - [Architecture][architecture]
-- [Pre-requisites][pre-requisites]
+- [Prerequisites][pre-requisites]
 - [Implementation][implementation]
   - [Brief diagram description][brief-diagram-description]
   - [Unity Game][unity-game]
@@ -26,7 +26,7 @@ Before starting to explain how this feature works, let's see how the game was im
 
 ---
 
-## Pre-requisites
+## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 

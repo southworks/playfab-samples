@@ -3,7 +3,7 @@
 ## Index
 
 - [Summary][summary]
-- [Pre-requisites][prerequisites]
+- [Prerequisites][prerequisites]
 - [Create Match Lobby Feature][create-match-lobby-feature]
   - [Architecture][architecture]
   - [Implementation][implementation]
@@ -20,7 +20,7 @@ This implementation uses the [Shared Group Data][shared-group-data] feature, a d
 
 The Match Lobby data is also stored in a Cosmos DB, allowing players to list and join to any available lobby.
 
-## Pre-requisites
+## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 

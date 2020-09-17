@@ -4,7 +4,7 @@
 
 * [Summary][summary]
 * [Architecture][architecture]
-* [Pre Requisites][pre-requisites]
+* [Prerequisites][pre-requisites]
 * [Implementation][implementation]
   * [Player one flow][player-one-flow]
     * [Brief Diagram Description][brief-diagram-description-player-one]
@@ -42,7 +42,7 @@ Regarding the ***Quick Match*** feature, we can add the next information:
 * *Tic-Tac-Toe game*: this is implemented in [this project][unity-game-project]. Here we've the *Quick Match option*, where we can start a *Match*.
 * *Tic-Tac-Toe Function App*: we've implemented this [here][azure-function-project].
 
-## Pre-requisites
+## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
@@ -82,7 +82,7 @@ The process starts when the *Player One* press the *Quick match* button.
 
 Then, we use the [Matchmaking Handler][ttt-matchmaking-handler] for creating a [Matchmaking Ticket][playfab-matchmaking-documentation].
 
-In this we use the *PlayFab's API* for creating the *Matchmatking Ticket* ([link][playfab-api-create-matchmaking-ticket]), setting all the necessary request's properties using the *QueueConfiguration* object we set when creating the current MatchmakingHandler class (check this [here][ttt-lobby-file-create-matchmaking-handler]).
+In this we use the *PlayFab's API* for creating the *Matchmaking Ticket* ([link][playfab-api-create-matchmaking-ticket]), setting all the necessary request's properties using the *QueueConfiguration* object we set when creating the current MatchmakingHandler class (check this [here][ttt-lobby-file-create-matchmaking-handler]).
 
 ##### Getting the Matchmaking Ticket Status
 

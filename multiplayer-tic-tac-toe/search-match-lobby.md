@@ -3,7 +3,7 @@
 ## Index
 
 - [Summary][summary-section]
-- [Pre-requisites][pre-requisites-section]
+- [Prerequisites][pre-requisites-section]
 - [Search Match Lobby][search-match-lobby]
   - [Architecture][feature-architecture-section]
   - [Implementation][feature-implementation-section]
@@ -17,7 +17,7 @@ This document explains how the Search Match Lobby feature was implemented.
 
 This feature allows players to look for a specific match lobby, to which they'll be connecting for playing against another known player. We can filter these lobbies by their IDs or their Names.
 
-## Pre-requisites
+## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
@@ -37,7 +37,7 @@ Before starting explaining how this feature works, lets see how the game was imp
 
 Regarding the **Search Match Lobby** feature, we can add the next information:
 
-- [Tic-Tac-Toe game][unity-game-project]. 
+- [Tic-Tac-Toe game][unity-game-project].
   - Here we have the Search option where we can look match lobbies by their IDs or their names:
 
   ---

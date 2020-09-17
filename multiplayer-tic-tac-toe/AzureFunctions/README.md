@@ -5,7 +5,7 @@
 * [Description][description]
   * [Azure Functions list][az-function-list]
 * [Configuration][configuration]
-  * [Pre-requisites][pre-requisites]
+  * [Prerequisites][pre-requisites]
   * [Configuration steps][configuration-steps]
     * [Retrieve Azure Functions URLs][get-az-function-urls]
 * [Technologies][technologies]
@@ -35,7 +35,7 @@ These are the current functions and their responsibilities:
 
 ## Configuration
 
-### Pre-requisites
+### Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 

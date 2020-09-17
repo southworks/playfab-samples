@@ -3,7 +3,7 @@
 ## Index
 
 - [Summary][summary]
-- [Pre-requisites][pre-requisites]
+- [Prerequisites][pre-requisites]
 - [Architecture][architecture]
 - [Implementation][implementation]
   - [Unity Game: Starts the connection process][unity-game-starts-the-connection-process]
@@ -13,7 +13,7 @@
 
 This sample demonstrates how to implement the Join Match Lobby feature. It allows a player (known as Player 2) to connect to an existing match lobby in order to play against another player.
 
-## Pre-requisites
+## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 

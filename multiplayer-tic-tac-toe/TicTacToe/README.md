@@ -4,7 +4,7 @@
 
 * [Description][description-section]
 * [Configuration][configuration-section]
-  * [Pre-Requisites][pre-requisites-section]
+  * [Prerequisites][pre-requisites-section]
   * [Configuration Steps][configuration-steps-section]
     * [PlayFab settings][playfab-settings-section]
     * [Unity Project settings][unity-project-settings-section]
@@ -15,7 +15,7 @@ This project consists in an [Unity][unity-main-page] Tic-Tac-Toe game with multi
 
 ## Configuration
 
-### Pre-requisites
+### Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 

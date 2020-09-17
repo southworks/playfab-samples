@@ -4,7 +4,7 @@
 
 * [Description][description]
 * [Configuration][configuration]
-  * [Pre-requisites][pre-requisites]
+  * [Prerequisites][pre-requisites]
   * [Configuration steps][configuration-steps]
     * [Retrieve Cosmos DB connection string][get-connection-string]
 * [Technologies][technologies]
@@ -15,7 +15,7 @@ This guide contains the necessary steps to configure an [Azure Cosmos DB][azure-
 
 ## Configuration
 
-### Pre-requisites
+### Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
@@ -28,7 +28,7 @@ Before configuring this project, first ensure the following prerequisites have b
 1. Create the `PlayFabTicTacToe` database (you can follow [this guide][azure-cosmos-db-add-database-container]).
 1. Create the `MatchLobby` container in the just created database (you can follow [this guide][azure-cosmos-db-add-database-container]):
 
-    > NOTE: set `/MatchLobbyId` as the [Partition Key][azure-cosmos-db-partitioning]. 
+    > NOTE: set `/MatchLobbyId` as the [Partition Key][azure-cosmos-db-partitioning].
 
 1. Configure [CORS][azure-cosmos-db-cors] from the [Azure Portal][azure-sign-in-page] following [this guide][azure-cosmos-db-cors-portal-config].
 
