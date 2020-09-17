@@ -64,7 +64,7 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
         1. Select the `HTTP` *Trigger Type* option.
         1. Enter your `Function name`.
         1. Enter your `Function URL`.
-            - > NOTE: you can follow [this tutorial][azure-function-readme-get-url] to get the *Function's URL*
+            > NOTE: you can follow [this tutorial][azure-function-readme-get-url] to get the *Function's URL*
         1. Press the `Register Function` button for saving the new function.
 
 #### Unity Project settings

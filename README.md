@@ -16,7 +16,7 @@ This project also has a set of specifics instructions on how to implement these 
 
 - How to turn a single player game into multiplayer.
 - How to support Match Lobbies in a multiplayer game.
-  - This includes an integration with [Cosmos DB][cosmos-db-doc] to support match lobby listing.
+  - This includes an integration with [Cosmos DB][cosmos-db-doc] to support Match Lobby listing.
 
 #### PlayFab Features
 

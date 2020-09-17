@@ -18,7 +18,7 @@ This sample demonstrates how to implement the Match Lobbies feature. A Match Lob
 
 This implementation uses the [Shared Group Data][shared-group-data] feature, a data entity shared between a small group of players, where the game state and players' data will be stored during the match.
 
-The Match Lobby data is also stored in a Cosmos DB, allowing players to list and join to any available lobby.
+The Match Lobby data is also stored in a Cosmos DB instance, allowing players to list and join to any available lobby.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ This function is responsible for:
 
 ### Azure Function App: CreateMatchLobby function
 
-The Azure Function [`CreateMatchLobby`][create-match-lobby] is responsible for updating the Shared Group Data with the Match Lobby and storing it in the Cosmos DB.
+The Azure Function [`CreateMatchLobby`][create-match-lobby] is responsible for updating the Shared Group Data with the Match Lobby and storing it in Cosmos DB.
 
 We perform this update with a request to the [UpdateSharedGroupData][ms-updatesharedgroupdata-doc] endpoint specifying the `SharedGroupId` and the Match Lobby's data to update.
 

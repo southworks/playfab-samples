@@ -7,7 +7,7 @@
   - [Automatic matchmaking](#automatic-matchmaking)
   - [Game flow and matchmaking detailed documentation](#game-flow-and-matchmaking-detailed-documentation)
 - [Support Match Lobby](#support-match-lobby)
-  - [Match lobby feature detailed documentation](#match-lobby-feature-detailed-documentation)
+  - [Match Lobby feature detailed documentation](#match-lobby-feature-detailed-documentation)
 
 ## Summary
 
@@ -76,9 +76,9 @@ For more detailed information regarding on how multiplayer was added to the Tic-
 
 ## Support Match Lobby
 
-Once the game is ready to receive the players, we can add the possibility to create, list and join match lobbies, allowing players to manually match with each other.
+Once the game is ready to receive the players, we can add the possibility to create, list and join Match Lobbies, allowing players to manually match with each other.
 
- Match lobby management involves four layers: the Unity game, PlayFab service, Azure Function, and a Cosmos DB.
+ Match Lobby management involves four layers: the Unity game, PlayFab service, Azure Function, and Cosmos DB.
 
 ---
 
@@ -86,11 +86,11 @@ Once the game is ready to receive the players, we can add the possibility to cre
 
 ---
 
-In this scenario, match lobbies will be linked to a *Shared Group Data* instance since they will share the same ID. For example, if the lobby’s name is “Awesome lobby” the SGD ID will also be “Awesome lobby”.
+In this scenario, Match Lobbies will be linked to a *Shared Group Data* instance since they will share the same ID. For example, if the lobby’s name is “Awesome lobby” the SGD ID will also be “Awesome lobby”.
 
-The major limitation here is that PlayFab does not yet have a way to list entities like Groups or Shared Group Data instances, so we had to store match lobbies outside of PlayFab.
+The major limitation here is that PlayFab does not yet have a way to list entities like Groups or Shared Group Data instances, so we had to store Match Lobbies outside of PlayFab.
 
-In this sample, every time a player creates a match lobby, it will add the match lobby data into a Cosmos DB storage instance. Other players will be able to search through a list of available lobbies and select one to join to.
+In this sample, every time a player creates a Match Lobby, it will add the Match Lobby data into a Cosmos DB storage instance. Other players will be able to search through a list of available lobbies and select one to join to.
 
 ---
 
@@ -100,19 +100,19 @@ In this sample, every time a player creates a match lobby, it will add the match
 
 ---
 
-The player that created the lobby will poll the match lobby state until another player has joined.
+The player that created the lobby will poll the Match Lobby state until another player has joined.
 
 When another player joins a lobby, it will update the SGD with the player’s data, and the game will start automatically.
 
-Match lobby data will be deleted from Cosmos DB as soon as the match starts. If a third player tries to create a lobby with the same name, PlayFab will not allow it, since there cannot be two shared group data instances with the same ID.
+Match Lobby data will be deleted from Cosmos DB as soon as the match starts. If a third player tries to create a lobby with the same name, PlayFab will not allow it, since there cannot be two shared group data instances with the same ID.
 
-### Match lobby feature detailed documentation
+### Match Lobby feature detailed documentation
 
-For more detailed information regarding the match lobbies feature, you can check the following documents:
+For more detailed information regarding the Match Lobby feature, you can check the following documents:
 
 - [Create a Match Lobby][create-match-lobby]
 - [Search a Match Lobby][search-match-lobby]
-- [Join to a match lobby][join-match-lobby]
+- [Join to a Match Lobby][join-match-lobby]
 
 <!-- URLS -->
 

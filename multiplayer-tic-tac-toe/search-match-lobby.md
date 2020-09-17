@@ -15,7 +15,7 @@
 
 This document explains how the Search Match Lobby feature was implemented.
 
-This feature allows players to look for a specific match lobby, to which they'll be connecting for playing against another known player. We can filter these lobbies by their IDs or their Names.
+This feature allows players to look for a specific Match Lobby, to which they'll be connecting for playing against another known player. We can filter these lobbies by their IDs or their Names.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Before starting explaining how this feature works, lets see how the game was imp
 Regarding the **Search Match Lobby** feature, we can add the next information:
 
 - [Tic-Tac-Toe game][unity-game-project].
-  - Here we have the Search option where we can look match lobbies by their IDs or their names:
+  - Here we have the Search option where we can look Match Lobbies by their IDs or their names:
 
   ---
 
@@ -49,7 +49,7 @@ Regarding the **Search Match Lobby** feature, we can add the next information:
   ---
 
 - [Tic-Tac-Toe Function App][azure-function-project].
-  - In this project we've the [Search Match Lobbies][azure-function-search-match-lobbies] Azure Function that allows us to perform the match lobbies search.
+  - In this project we've the [Search Match Lobbies][azure-function-search-match-lobbies] Azure Function that allows us to perform the Match Lobby search.
 
 ## Implementation
 
@@ -63,7 +63,7 @@ The *Search Match Lobby* flow consists of six different steps:
 
 ### Unity Game: Starts the connection process
 
-The *Search Match Lobby* process starts when a Player (let's call him/her *Player 2*) enters a match lobby filter (*ID* or *name*) for finding a specific Lobby for playing against another Player.
+The *Search Match Lobby* process starts when a Player enters a Match Lobby filter (*ID* or *name*) for finding a specific Lobby for playing against another Player.
 
 ---
 
@@ -134,13 +134,13 @@ public static async Task<Wrapper<MatchLobbyInfo>> Run(
 }
 ```
 
-This is an [HTTP triggered][azure-function-http-trigger-doc] function, which has a [Cosmos DB input binding][azure-function-cosmos-db-input-doc], from which we can retrieve a match lobby list.
+This is an [HTTP triggered][azure-function-http-trigger-doc] function, which has a [Cosmos DB input binding][azure-function-cosmos-db-input-doc], from which we can retrieve a Match Lobby list.
 
 From the input binding we retrieve a [SearchMatchLobbiesRequest][search-match-lobbies-request-azf] object (which has the search filters). Something important to highlight is that we parse the received request using the `Create` method from the `FunctionContext` class. This returns an object which contains the request data in the `FunctionArgument` property.
 
 Then, we perform a request call to our Cosmos DB in [this line][azure-function-search-match-lobbies-cosmos-query] for getting the required data. This data will be returned to the Unity Game (through the PlayFab's service) for listing it in the Match Lobby search page. This is performed in [this line][azure-function-search-match-lobbies-return-data].
 
-Finally, the Tic-Tac-Toe unity game receives the data from our Azure Function (check [it here][match-lobby-handler-get-lobby-list-success]), process it, and shows it in the match lobbies component:
+Finally, the Tic-Tac-Toe unity game receives the data from our Azure Function (check [it here][match-lobby-handler-get-lobby-list-success]), process it, and renders a list for the Match Lobbies found:
 
 ---
 

@@ -82,7 +82,7 @@ In the previous Azure Function we've used the next method:
 
 The [GetGameStatus][get-game-status-azf] Azure Function allow us to get the current game's state from an specific *Shared Group*. For doing so, it's necessary to provide the *Shared Group ID* (which is a property from the [GetGameStatusRequest][get-game-status-request] request class).
 
-This is the current implementation:
+This is the current implementation of the [GetGameStatus][get-game-status-azf] Azure Function:
 
 ```csharp
 [FunctionName("GetGameStatus")]

@@ -16,10 +16,10 @@ This flow is the step that links the Lobby scene with the Game scene, and makes 
 
 There are 4 scenarios where players can trigger this logic:
 
-- Player 1 clicking on the Quick Match button. ([here][quickmatch-sm-trigger])
-- Player 2 clicking on the Quick Match button. ([here][quickmatch-sm-trigger])
-- Player 1 creating a Match Lobby. ([here][matchlobby-connect-sm-trigger])
-- Player 2 joining a Match Lobby. ([here][matchlobby-join-sm-trigger])
+- Player One (P1) clicking on the Quick Match button. ([here][quickmatch-sm-trigger])
+- Player Two (P2) clicking on the Quick Match button. ([here][quickmatch-sm-trigger])
+- P1 creating a Match Lobby. ([here][matchlobby-connect-sm-trigger])
+- P2 joining a Match Lobby. ([here][matchlobby-join-sm-trigger])
 
 ## Implementation
 

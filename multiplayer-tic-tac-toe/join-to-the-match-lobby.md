@@ -11,7 +11,7 @@
 
 ## Summary
 
-This sample demonstrates how to implement the Join Match Lobby feature. It allows a player (known as Player 2) to connect to an existing match lobby in order to play against another player.
+This sample demonstrates how to implement the Join Match Lobby feature. It allows a player to connect to an existing Match Lobby in order to play against another player.
 
 ## Prerequisites
 
