@@ -21,7 +21,7 @@ This project also has a set of specifics instructions on how to implement these 
 #### PlayFab Features
 
 - **Matchmaking Queues**. Used to match random players together.
-- *Shared Group*. Used to store the game state, and for manual matchmaking through Match Lobbies.
+- **Shared Group**. Used to store the game state, and for manual matchmaking through Match Lobbies.
 - **Basic Login**. Used to identify each game instance as a different user.
 
 ## Feedback
