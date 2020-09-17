@@ -4,7 +4,7 @@
 
 - [Summary][summary]
 - [Architecture][architecture]
-- [Prerequisites][pre-requisites]
+- [Prerequisites][prerequisites]
 - [Implementation][implementation]
   - [Brief diagram description][brief-diagram-description]
   - [Unity Game][unity-game]
@@ -183,7 +183,7 @@ Some notes about the previous implementation:
 <!-- Index -->
 [summary]: #summary
 [architecture]: #architecture
-[pre-requisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [implementation]: #implementation
 [brief-diagram-description]: #brief-diagram-description
 [unity-game]: #unity-game

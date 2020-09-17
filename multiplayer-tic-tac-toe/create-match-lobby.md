@@ -87,7 +87,7 @@ Finally, the [`TicTacToeSharedGroupData`][tictactoe-shared-group-data] is return
 
 <!-- Index Links -->
 [summary]: #summary
-[prerequisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [create-match-lobby-feature]: #create-match-lobby-feature
 [architecture]: #architecture
 [implementation]: #implementation

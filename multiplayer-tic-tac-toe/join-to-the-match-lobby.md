@@ -3,7 +3,7 @@
 ## Index
 
 - [Summary][summary]
-- [Prerequisites][pre-requisites]
+- [Prerequisites][prerequisites]
 - [Architecture][architecture]
 - [Implementation][implementation]
   - [Unity Game: Starts the connection process][unity-game-starts-the-connection-process]
@@ -61,15 +61,15 @@ This button executes the [`JoinMatchLobby`][match-lobby-handler] method of the `
 The Azure Function [`JoinMatchLobby`][join-match-lobby] is responsible for:
 
 - [Retrieving][retrieving-the-shared-group-data] the Shared Group Data by its identifier.
-- [Adding][add-member-to-shared-group-data] the Player Two as member of the shared group.
+- [Adding][add-member-to-shared-group-data] the P2 as member of the shared group.
 - [Updating][update-the-shared-group-data] the Shared Group Data:
   - Updates the current availability of  the `MatchLobby` property to zero.
   - Sets the current player ID as the `PlayerTwoId` of the `Match` property.
 - [Updating][insert-match-lobby-into-cosmos-db] the new `MatchLobby` in Cosmos DB.
 
-To add Player Two as a member of the Shared Group the [function sends a request][add-member-to-shared-group-data] to the [`/Server/AddSharedGroupMembers`][add-shared-group-members-endpoint] endpoint through the PlayFab's SDK.
+To add P2 as a member of the Shared Group the [function sends a request][add-member-to-shared-group-data] to the [`/Server/AddSharedGroupMembers`][add-shared-group-members-endpoint] endpoint through the PlayFab's SDK.
 
-> NOTE: The function must use the `MasterPlayerAccountId` - which is [retrieved from its context][retrieve-the-master-player-account-id-from-the-function-context] - as Player Two identifier.
+> NOTE: The function must use the `MasterPlayerAccountId` - which is [retrieved from its context][retrieve-the-master-player-account-id-from-the-function-context] - as P2 identifier.
 
 To update the Shared Group Data the [function sends a request][update-the-shared-group-data] to the [`/Server/UpdateSharedGroupData`][update-shared-group-data-endpoint] endpoint through the PlayFab's SDK.
 
@@ -79,7 +79,7 @@ Finally, the Shared Group Data is returned to the Game which starts the [Start M
 
 <!-- Index Links -->
 [summary]: #summary
-[pre-requisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [architecture]: #architecture
 [implementation]: #implementation
 [unity-game-starts-the-connection-process]: #unity-game-starts-the-connection-process

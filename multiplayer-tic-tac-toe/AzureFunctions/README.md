@@ -2,13 +2,13 @@
 
 ## Index
 
-* [Description][description]
-  * [Azure Functions list][az-function-list]
-* [Configuration][configuration]
-  * [Prerequisites][pre-requisites]
-  * [Configuration steps][configuration-steps]
-    * [Retrieve Azure Functions URLs][get-az-function-urls]
-* [Technologies][technologies]
+- [Description][description]
+  - [Azure Functions list][az-function-list]
+- [Configuration][configuration]
+  - [Prerequisites][prerequisites]
+  - [Configuration steps][configuration-steps]
+    - [Retrieve Azure Functions URLs][get-az-function-urls]
+- [Technologies][technologies]
 
 ## Description
 
@@ -23,7 +23,7 @@ These are the current functions and their responsibilities:
 | *CreateMatchLobby* | Allows us to create a Match Lobby, where two players will face each other. | [Link][CreateMatchLobby-AZF-source-code] |
 | *CreateSharedGroup* | Creates a PlayFab Shared Group, where the Match information will be stored. | [Link][CreateSharedGroup-AZF-source-code] |
 | *DeleteMatchLobby* | Allows us to delete an existing Match Lobby from Cosmos DB. | [Link][DeleteMatchLobby-AZF-source-code] |
-| *DeleteSharedGroup* | Deletes an existing Shared Group | [Link][DeleteSharedGroup-AZF-Source-code] |
+| *DeleteSharedGroup* | Deletes an existing Shared Group. | [Link][DeleteSharedGroup-AZF-Source-code] |
 | *GetGameStatus* | Returns the game's status. | [Link][GetGameStatus-AZF-source-code] |
 | *GetSharedGroup* | Returns the information stored in an existing Shared Group, given its ID. | [Link][GetSharedGroup-AZF-source-code] |
 | *JoinMatch* | Adds a player into an existing Match. This is used when playing a Quick match. | [Link][JoinMatch-AZF-source-code] |
@@ -39,12 +39,12 @@ These are the current functions and their responsibilities:
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
-* Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
-* Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
-* Create a [PlayFab account][playfab-account-create] ([tutorial][playfab-account-create-tutorial]), or [sing-in][playfab-account-login] into your current account.
-* Create a new [PlayFab Title][playfab-title-create-tutorial] in your [PlayFab account][playfab-account-login].
-* Download [Visual Studio][visual-studio-download] or [Visual Studio Code][visual-studio-code-download].
-* Read and complete the [Azure Cosmos DB configuration][cosmos-db-readme].
+- Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
+- Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
+- Create a [PlayFab account][playfab-account-create] ([tutorial][playfab-account-create-tutorial]), or [sing-in][playfab-account-login] into your current account.
+- Create a new [PlayFab Title][playfab-title-create-tutorial] in your [PlayFab account][playfab-account-login].
+- Download [Visual Studio][visual-studio-download] or [Visual Studio Code][visual-studio-code-download].
+- Read and complete the [Azure Cosmos DB configuration][cosmos-db-readme].
 
 ### Configuration steps
 
@@ -72,15 +72,15 @@ For getting your Azure Functions URLs, following the first steps of [this tutori
 
 ## Technologies
 
-* [Azure Services][azure-main-page]
-* [Azure Functions][azure-functions-main-page] ([Documentation's main page][azure-function-documentation])
-* [PlayFab][playfab-main-page]
-* [Visual Studio][visual-studio-download]/[Visual Studio Code][visual-studio-code-download]
+- [Azure Services][azure-main-page]
+- [Azure Functions][azure-functions-main-page] ([Documentation's main page][azure-function-documentation])
+- [PlayFab][playfab-main-page]
+- [Visual Studio][visual-studio-download]/[Visual Studio Code][visual-studio-code-download]
 
 [description]: #description
 [az-function-list]: #azure-function-list
 [configuration]: #configuration
-[pre-requisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [configuration-steps]: #configuration-steps
 [get-az-function-urls]: #retrieve-azure-functions-urls
 [technologies]: #technologies

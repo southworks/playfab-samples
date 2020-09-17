@@ -53,13 +53,13 @@ As a double check, if the player still has the shared group data in the game’s
 
 ### Automatic matchmaking
 
-With two player mode implemented, we had to implement a way to match players together.
+With two player mode implemented, we had to implement a way to match two players (P1 and P2) together.
 
 Our automatic matchmaking (*Quick Match*) takes advantage of [PlayFab's Matchmaking service][playfab-matchmaking-doc]. The flow works like this:
 
-- Player One issues a matchmaking ticket to PlayFab's Matchmaking feature.
+- P1 issues a matchmaking ticket to PlayFab's Matchmaking feature.
   - P1 keeps polling the ticket state until finding a match.
-- Player Two issues a matchmaking ticket to PlayFab's Matchmaking feature.
+- P2 Two issues a matchmaking ticket to PlayFab's Matchmaking feature.
   - P2 keeps polling the ticket state until finding a match.
 - PlayFab matches P1 and P2 together.
 - P1 starts a flow to trigger the SGD, using the following id: “{playerOneId}-{playerTwoId}”.

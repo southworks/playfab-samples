@@ -37,7 +37,7 @@ Finally, depending on the result of the polling the game will start, or it will 
 
 When the start match method triggers the [Create Match flow][create-match-method], it will run this process:
 
-- Checks if the current player is the Player One or Player Two
+- Checks if the current player is the P1 or P2.
 - Defines the ID of the new shared group data with the following format: `{PlayerOneId}-{PlayerTwoId}`
 - If the player is P1, it will trigger the `CreateSharedGroup` Azure Function with the ID defined before.
 - If the player is P2, it will trigger the `JoinMatch` Azure Function with the ID defined before.
@@ -45,11 +45,11 @@ When the start match method triggers the [Create Match flow][create-match-method
 
 ### Polling process
 
-The game will not start until both players have joined to the match. 
+The game will not start until both players have joined to the match.
 
 Each player will keep [polling][start-match-polling] the game state until:
 
-- **The game can start**. There is a valid shared group data instance and Player One and Player Two set their IDs in the game context.
+- **The game can start**. There is a valid shared group data instance and both players set their IDs in the game context.
   - On each loop where the player gets the match state, it will update a flag to see if the game can be started.
 - **The player cancels matchmaking**.
 - **The user fails to get the match data**. In this case the shared group data gets deleted in any case.

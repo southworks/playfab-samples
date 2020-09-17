@@ -3,7 +3,7 @@
 ## Index
 
 - [Summary][summary-section]
-- [Prerequisites][pre-requisites-section]
+- [Prerequisites][prerequisites-section]
 - [Search Match Lobby][search-match-lobby]
   - [Architecture][feature-architecture-section]
   - [Implementation][feature-implementation-section]
@@ -152,7 +152,7 @@ Finally, the Tic-Tac-Toe unity game receives the data from our Azure Function (c
 
 <!-- Index -->
 [summary-section]: #summary
-[pre-requisites-section]: #pre-requisites
+[prerequisites-section]: #prerequisites
 [search-match-lobby]: #search-match-lobby-feature
 [feature-architecture-section]: #architecture
 [feature-implementation-section]: #implementation

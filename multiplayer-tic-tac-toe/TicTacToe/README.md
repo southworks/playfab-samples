@@ -2,12 +2,12 @@
 
 ## Index
 
-* [Description][description-section]
-* [Configuration][configuration-section]
-  * [Prerequisites][pre-requisites-section]
-  * [Configuration Steps][configuration-steps-section]
-    * [PlayFab settings][playfab-settings-section]
-    * [Unity Project settings][unity-project-settings-section]
+-[Description][description-section]
+-[Configuration][configuration-section]
+  -[Prerequisites][prerequisites-section]
+  -[Configuration Steps][configuration-steps-section]
+    -[PlayFab settings][playfab-settings-section]
+    -[Unity Project settings][unity-project-settings-section]
 
 ## Description
 
@@ -19,12 +19,12 @@ This project consists in an [Unity][unity-main-page] Tic-Tac-Toe game with multi
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
-* Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
-* Download and install *Unity Hub* and *Unity* IDE ([link][unity-hub-download]).
-* Download the [PlayFab Unity Editor Extension Asset Package][playfab-sdk-download]
+- Clone this project in your computer (`git clone https://github.com/southworks/playfab.git`).
+- Download and install *Unity Hub* and *Unity* IDE ([link][unity-hub-download]).
+- Download the [PlayFab Unity Editor Extension Asset Package][playfab-sdk-download]
 
     > NOTE: save the *.unitypackage* file in an accessible folder, as we'll be using it later
-* Read and complete the [Azure Function configuration][azure-function-readme].
+- Read and complete the [Azure Function configuration][azure-function-readme].
 
 ### Configuration steps
 
@@ -47,7 +47,7 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
             1. ***Attribute Source***: select the `User` option.
             1. ***Attribute path***: `Skill`.
             1. ***Behavior when the attribute is not specified***: select the `Match with any` option.
-    1. At the end, you'll have something like this: 
+    1. At the end, you'll have something like this:
 
     ---
 
@@ -63,10 +63,9 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
         1. Press the `Register Function` button.
         1. Select the `HTTP` *Trigger Type* option.
         1. Enter your `Function name`.
-        1. Enter your `Function URL` 
-        > NOTE: you can follow [this tutorial][azure-function-readme-get-url] to get the *Function's URL*
-
-        5. Press the `Register Function` button for saving the new function.
+        1. Enter your `Function URL`.
+            - > NOTE: you can follow [this tutorial][azure-function-readme-get-url] to get the *Function's URL*
+        1. Press the `Register Function` button for saving the new function.
 
 #### Unity Project settings
 
@@ -76,15 +75,15 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
     1. Double-click the *PlayFab Unity Package*.
     1. The following prompt will be shown:
 
-    ---
+        ---
 
-    <p align="center">
-      <img src="../document-assets/images/unity-package-import.png" />
-    </p>
+        <p align="center">
+          <img src="../document-assets/images/unity-package-import.png" />
+        </p>
 
-    ---
+        ---
 
-    5. Press the `Import` button to import these assets into the project.
+    1. Press the `Import` button to import these assets into the project.
 1. Configure the Unity project:
     1. First, go to your [PlayFab's Title][playfab-account-login] and retrieve your [PlayFab's title ID][playfab-title-get-title-id].
     1. Paste the *Title ID* in [this line][unity-constants-file-title-id] of the [Constants.cs][unity-constants-file] file.
@@ -93,7 +92,7 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
 <!-- Index -->
 [description-section]: #description
 [configuration-section]: #configuration
-[pre-requisites-section]: #pre-requisites
+[prerequisites-section]: #prerequisites
 [configuration-steps-section]: #configuration-steps
 [playfab-settings-section]: #playfab-settings
 [unity-project-settings-section]: #unity-project-settings

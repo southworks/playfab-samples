@@ -2,12 +2,12 @@
 
 ## Index
 
-* [Description][description]
-* [Configuration][configuration]
-  * [Prerequisites][pre-requisites]
-  * [Configuration steps][configuration-steps]
-    * [Retrieve Cosmos DB connection string][get-connection-string]
-* [Technologies][technologies]
+- [Description][description]
+- [Configuration][configuration]
+  - [Prerequisites][prerequisites]
+  - [Configuration steps][configuration-steps]
+    - [Retrieve Cosmos DB connection string][get-connection-string]
+- [Technologies][technologies]
 
 ## Description
 
@@ -19,7 +19,7 @@ This guide contains the necessary steps to configure an [Azure Cosmos DB][azure-
 
 Before configuring this project, first ensure the following prerequisites have been completed:
 
-* Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
+- Create an [Azure account][azure-account], or [sign-in][azure-sign-in-page] into your current account.
 
 ### Configuration steps
 
@@ -52,12 +52,12 @@ For retrieving the connection string of your Azure Cosmos DB account, follow the
 
 ## Technologies
 
-* [Azure Services][azure-main-page]
-* [Azure Cosmos DB][azure-cosmos-db] ([Documentation's main page][azure-cosmos-db-doc-page])
+- [Azure Services][azure-main-page]
+- [Azure Cosmos DB][azure-cosmos-db] ([Documentation's main page][azure-cosmos-db-doc-page])
 
 [description]: #description
 [configuration]: #configuration
-[pre-requisites]: #pre-requisites
+[prerequisites]: #prerequisites
 [configuration-steps]: #configuration-steps
 [get-connection-string]: #retrieve-cosmos-db-connection-string
 [technologies]: #technologies
