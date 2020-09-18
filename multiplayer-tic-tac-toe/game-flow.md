@@ -57,6 +57,8 @@ All the Game Flow logic is implemented in the [Game][game-class-file] file. The 
     1. ***Get Game Status***: here we call the [GetGameStatus][game-class-file-get-game-status] method, which uses the [Get][game-status-handler-get] method from the [GameStatusHandler][game-status-handler] for retrieving the current Game State information, which will be used in further steps. Here we also call the [CheckForWinner][game-class-file-check-for-winner] method, which uses the retrieved Game State information for checking if the latest player move is an end game move or not. In case it is, the game will conclude.
     1. ***Make Move***: after checking if it's the current player's turn (check it [here][game-class-file-my-turn]), we run the [MakeMove][game-class-make-move] method, which request the player to perform a move in the Tic-Tac-Toe board and sends it to the [MakeMultiplayerMove][make-multiplayer-move-azf] Azure Function for storing it in the Game State. For this, it uses the [MakeMove][game-status-handler-make-move] method from the [GameStatusHandler][game-status-handler] class.
 
+> **Note**: Polling state of the game from the SGD is **not recommended for production**, as it could end up being too expensive.
+
 ### Azure Function: Start Match
 
 The [StartMatch][start-match-azf] Azure Function initializes the Game Status data (a representation of the Tic-Tac-Toe board, with the respective players moves), and stores it in a PlayFab Shared Group. This is an important step in our flow as this data (and the related Shared Group) will be used throughout the current game (i.e.: if the game is concluded or cancelled, the data will be deleted), allowing us to share the different moves and states between both players.

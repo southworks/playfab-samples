@@ -59,13 +59,15 @@ Our automatic matchmaking (*Quick Match*) takes advantage of [PlayFab's Matchmak
 
 - P1 issues a matchmaking ticket to PlayFab's Matchmaking feature.
   - P1 keeps polling the ticket state until finding a match.
-- P2 Two issues a matchmaking ticket to PlayFab's Matchmaking feature.
+- P2 issues a matchmaking ticket to PlayFab's Matchmaking feature.
   - P2 keeps polling the ticket state until finding a match.
 - PlayFab matches P1 and P2 together.
 - P1 starts a flow to trigger the SGD, using the following id: “{playerOneId}-{playerTwoId}”.
 - P2 starts a flow to join to the SGD, using the same id as the P1: “{playerOneId}-{playerTwoId}”.
   - If P2 fails to join to the SGD, it will keep retrying in case the requests were sent before SGD is created.
 - Once both players are part of the SGD, the game will start.
+
+> **Note**: Polling state of the game from the SGD is **not recommended for production**, as it could end up being too expensive.
 
 ### Game flow and matchmaking detailed documentation
 

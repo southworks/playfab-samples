@@ -54,6 +54,8 @@ Each player will keep [polling][start-match-polling] the game state until:
 - **The player cancels matchmaking**.
 - **The user fails to get the match data**. In this case the shared group data gets deleted in any case.
 
+> **Note**: Polling state of the game from the SGD is **not recommended for production**, as it could end up being too expensive.
+
 ### Polling result
 
 Finally, the game checks if the game state polling process resulted in the game being able to start or not.
