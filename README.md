@@ -28,6 +28,10 @@ This project also has a set of specifics instructions on how to implement these 
 
 Got ideas for samples that you would like to see developed? Let us know at [playfab-sw@southworks.com](mailto:playfab-sw@southworks.com).
 
+## License
+
+This repository is covered under the [MIT License](./LICENSE).
+
 <!-- Internal links -->
 [multiplayer-tic-tac-toe]: ./multiplayer-tic-tac-toe
 
