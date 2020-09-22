@@ -11,19 +11,14 @@ namespace TicTacToeFunctions.Util
     {
         public static Expression<Func<MatchLobby, bool>> GetSearchMatchLobbiesExpression(string filter)
         {
-            Func<MatchLobby, bool> result = null;
             Func<MatchLobby, bool> matchIdFunc = (mLobbyInfo) => true;
-            Func<MatchLobby, bool> nameFunc = (mLobbyInfo) => true;
 
             if (!string.IsNullOrWhiteSpace(filter))
             {
-                matchIdFunc = (item) => item.MatchLobbyId == filter;
+                matchIdFunc = (item) => item.MatchLobbyId.IndexOf(filter.Trim(), StringComparison.OrdinalIgnoreCase) != -1;
             }
 
-            result = (mLobbyInfo) => matchIdFunc(mLobbyInfo) || nameFunc(mLobbyInfo);
-
-            // return func as an expression
-            return (x) => result(x);
+            return (mLobbyInfo) => matchIdFunc(mLobbyInfo);
         }
 
         public static Expression<Func<Document, bool>> GetDeleteDocumentByIdExpression(string Id)
