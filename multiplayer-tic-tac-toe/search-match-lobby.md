@@ -170,7 +170,7 @@ Finally, the Tic-Tac-Toe unity game receives the data from our Azure Function (c
 [azure-function-search-match-lobbies-return-data]: ./AzureFunctions/TicTacToeFunctions/Functions/SearchMatchlobbies.cs#L31s
 [search-match-lobbies-request-azf]: ./AzureFunctions/TicTacToeFunctions/Models/Requests/SearchMatchLobbiesRequest.cs
 
-[search-match-lobbies-request]: ./TicTacToe/Assets/Scripts/Models/Requests/SearchMatchlobbiesRequest.cs
+[search-match-lobbies-request]: ./TicTacToe/Assets/Scripts/Models/Requests/SearchMatchLobbiesRequest.cs
 [azure-function-search-match-lobbies-cosmos-query]: ./AzureFunctions/TicTacToeFunctions/Functions/SearchMatchlobbies.cs#L27
 
 [match-lobby-handler]: ./TicTacToe/Assets/Scripts/Handlers/MatchlobbyHandler.cs

@@ -46,7 +46,7 @@ In the previous diagram you can see how we've implemented the *Game Flow*. There
 
 - ***Part 01 - Steps 1 to 2***: In this part the Tic-Tac-Toe Game starts the *Game Flow* by creating a request to the [StartMatch][start-match-azf] Azure Function, which will initialize the Game State.
 - ***Part 02 - Steps 3 to 6***: The Game will retrieve the Game State data using the [GetGameStatus][get-game-status-azf] Azure Function. After getting this data, the game will check if this is the current player's turn for doing a move (*Step 5*), and in case it is, it will check if the latest performed move is an end game move (*Step 6*).
-- ***Part 03 - Steps 7 to 13***: After checking that the latest move wasn't an end game move, the game will ask the player for a move. Once it's done, the Tic-Tac-Toe Game, using the [MakeMultiplayerMove][make-multiplayer-move-azf] Azure Function, will validate the move (*Step 9*) and, in case it is valid, will store it in the Game State (*step 10*). Lastly, after the Azure Function execution, the game will check the movement validation, and in case it was an invalid one, it will return to *Step 7*.
+- ***Part 03 - Steps 7 to 13***: After checking that the latest move wasn't an end game move, the game will ask the player for a new move. Once it's done, the Tic-Tac-Toe Game, using the [MakeMultiplayerMove][make-multiplayer-move-azf] Azure Function, will validate the move (*Step 9*) and, in case it is valid, will store it in the Game State (*step 10*). Lastly, after the Azure Function execution, the game will check the movement validation, and in case it was an invalid one, it will return to *Step 7*.
 
 ### Unity Game
 

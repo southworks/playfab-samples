@@ -102,7 +102,7 @@ In this sample, every time a player creates a Match Lobby, it will add the Match
 
 ---
 
-The player that created the Match Lobby will poll the its state until another player has joined.
+The player who created the Match Lobby will poll its state until another player has joined.
 
 When another player joins a Match Lobby, it will update the SGD with the player’s data, and the game will start automatically.
 

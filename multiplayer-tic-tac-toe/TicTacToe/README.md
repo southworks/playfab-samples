@@ -2,12 +2,12 @@
 
 ## Index
 
--[Description][description-section]
--[Configuration][configuration-section]
-  -[Prerequisites][prerequisites-section]
-  -[Configuration Steps][configuration-steps-section]
-    -[PlayFab settings][playfab-settings-section]
-    -[Unity Project settings][unity-project-settings-section]
+- [Description][description-section]
+- [Configuration][configuration-section]
+  - [Prerequisites][prerequisites-section]
+  - [Configuration Steps][configuration-steps-section]
+    - [PlayFab settings][playfab-settings-section]
+    - [Unity Project settings][unity-project-settings-section]
 
 ## Description
 

@@ -26,7 +26,7 @@ There are 4 scenarios where players can trigger this logic:
 The [StartMatch method][start-match-method] expects the `shouldCreateMatch` flag.
 This flag is used to state if the match (and the related shared group data) was created before calling the method.
 
-When two players are matched after clicking on the `Quick Play` button, the game will trigger the StartMatch with the `shouldCreateMatch` flag in true.
+When two players are matched after clicking on the `Quick match` button, the game will trigger the StartMatch with the `shouldCreateMatch` flag in true.
 This triggers the Match Creation using the data initialized in the `Quick Play` flow.
 
 Then, the game will start the polling process to see if both players are ready to start.

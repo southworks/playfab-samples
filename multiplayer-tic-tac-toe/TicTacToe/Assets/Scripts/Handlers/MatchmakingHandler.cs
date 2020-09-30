@@ -120,9 +120,7 @@ namespace TicTacToe.Handlers
 
         public IEnumerator EnsureGetMatchmakingTicketStatus()
         {
-            yield return GetMatchmakingTicketStatus();
-
-            while (MatchmakingTicketStatus != null && MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Matched && MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Canceled)
+            do
             {
                 yield return GetMatchmakingTicketStatus();
                 Debug.Log($"Matchmaking Ticket Status: { MatchmakingTicketStatus.Status }");
@@ -132,11 +130,14 @@ namespace TicTacToe.Handlers
                     MatchmakingTicketStatus = null;
                 }
 
-                if (MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Matched)
+                if (MatchmakingTicketStatus != null && MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Matched)
                 {
                     yield return new WaitForSeconds(Constants.RETRY_GET_TICKET_STATUS_AFTER_SECONDS);
                 }
-            };
+            }
+            while (MatchmakingTicketStatus != null
+                && MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Matched
+                && MatchmakingTicketStatus.Status != MatchmakingTicketStatusEnum.Canceled);
 
             yield return WaitForExecution();
         }

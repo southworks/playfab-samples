@@ -245,7 +245,7 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 [quick-match-player-02]: ./document-assets/images/diagrams/quick-match-diagram-02.png
 
 <!-- Projects -->
-[unity-game-project]: .
+[unity-game-project]: ./TicTacToe/
 [azure-function-project]: ./AzureFunctions
 
 [playfab-shared-group-documentation]: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data

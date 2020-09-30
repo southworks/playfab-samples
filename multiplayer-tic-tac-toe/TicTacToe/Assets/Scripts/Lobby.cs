@@ -133,6 +133,7 @@ namespace TicTacToe
             {
                 LookingForMatch = false;
                 UpdateGameStatus(Constants.TICKET_TIMEDOUT_OR_CANCELLED);
+                RestartUIToQuickMatch();
             }
         }
 
@@ -169,6 +170,15 @@ namespace TicTacToe
             GameStatusTxt.text = statusText;
         }
 
+        private void RestartUIToQuickMatch()
+        {
+            QuickMatchBtn.GetComponentInChildren<Text>().text = Constants.BUTTON_QUICKMATCH_QUICKMATCHED_CANCELED;
+            MatchLobbyNameInput.gameObject.SetActive(true);
+            MatchLobbyText.gameObject.SetActive(true);
+            SearchMatchLobbyBtn.gameObject.SetActive(true);
+            ManageMatchLobbyBtn.gameObject.SetActive(true);
+        }
+
         private void OnClickQuickMatch()
         {
             ApplicationModel.IsMultiplayer = true;
@@ -180,11 +190,7 @@ namespace TicTacToe
                 if (LookingForMatch)
                 {
                     StartCoroutine(CancelMatchmaking());
-                    QuickMatchBtn.GetComponentInChildren<Text>().text = Constants.BUTTON_QUICKMATCH_QUICKMATCHED_CANCELED;
-                    MatchLobbyNameInput.gameObject.SetActive(true);
-                    MatchLobbyText.gameObject.SetActive(true);
-                    SearchMatchLobbyBtn.gameObject.SetActive(true);
-                    ManageMatchLobbyBtn.gameObject.SetActive(true);
+                    RestartUIToQuickMatch();
                 }
                 else
                 {
