@@ -1,5 +1,3 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
 using Microsoft.Azure.Documents;
 using System;
 using System.Linq.Expressions;

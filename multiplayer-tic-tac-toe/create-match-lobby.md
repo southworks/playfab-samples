@@ -20,6 +20,8 @@ This implementation uses the [Shared Group Data][shared-group-data] feature, a d
 
 The Match Lobby data is also stored in a Cosmos DB instance, allowing players to list and join to any available lobby.
 
+> **As [PlayFab's documentation][sdg-disclamer] states, Shared Group Data should not be used by groups larger than a dozen or so players, at most**.
+
 ## Prerequisites
 
 Before configuring this project, first ensure the following prerequisites have been completed:
@@ -107,9 +109,9 @@ Finally, the [`TicTacToeSharedGroupData`][tictactoe-shared-group-data] is return
 [start-match-readme]: ./start-match.md
 
 <!-- AZURE FUNCTIONS -->
-[create-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Functions/CreateSharedGroup.cs
+[create-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/CreateSharedGroup.cs
 [tictactoe-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Models/TicTacToeSharedGroupData.cs
-[create-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/CreateMatchLobby.cs
+[create-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/CreateMatchLobby.cs
 
 <!-- Game -->
 [start-match-method]: ./TicTacToe/Assets/Scripts/Lobby.cs#L219
@@ -118,3 +120,4 @@ Finally, the [`TicTacToeSharedGroupData`][tictactoe-shared-group-data] is return
 <!-- PlayFab References -->
 [shared-group-data]: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
 [playfab-sdk]: https://github.com/PlayFab/CSharpSDK
+[sdg-disclamer]: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data

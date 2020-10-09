@@ -1,6 +1,4 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
-using Microsoft.Azure.Documents;
+﻿using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using System;
@@ -8,24 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using TicTacToeFunctions.Models.Helpers;
+using TicTacToeFunctions.Models.Service.Interfaces;
 
 namespace TicTacToeFunctions.Util
 {
     public class DocumentClientManager
     {
-        public static async Task<List<T>> GetDocumentsByIdAsync<T>(DocumentClient client, string databaseName, string collectionName, string id, bool enableCrossPartitionQuery = true) where T : IMatchId
-        {
-            var collectionUri = CreateDocumentCollectionUri(databaseName, collectionName);
-            var options = CreateFeedOptions(enableCrossPartitionQuery);
-
-            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(collectionUri, options)
-                        .Where(elem => elem.MatchId == id)
-                        .AsDocumentQuery();
-
-            return await GetValuesFromDocumentQueryAsyc(query);
-        }
-
         public static async Task<List<T>> FilterDocumentClient<T>(DocumentClient client, string databaseName, string collectionName, Expression<Func<T, bool>> filter = null)
         {
             var collectionUri = CreateDocumentCollectionUri(databaseName, collectionName);
@@ -51,6 +37,22 @@ namespace TicTacToeFunctions.Util
             var options = CreateRequestOptions(partitionKey);
 
             await client.DeleteDocumentAsync(document.SelfLink, options);
+        }
+
+        public static async Task ReplaceDocument<T>(DocumentClient client, T data, string databaseName, string collectionName) where T : ICustomDocument
+        {
+            var uri = UriFactory.CreateDocumentUri(databaseName, collectionName, data.id);
+
+            await client.ReplaceDocumentAsync(uri, data,
+                new RequestOptions
+                {
+                    AccessCondition = new AccessCondition
+                    {
+                        Type = AccessConditionType.IfMatch,
+                        Condition = data._etag
+                    }
+                }
+            );
         }
 
         private static Uri CreateDocumentCollectionUri(string databaseId, string collectionId)
@@ -96,12 +98,6 @@ namespace TicTacToeFunctions.Util
             {
                 PartitionKey = new PartitionKey(partitionKey)
             };
-        }
-
-        public static async Task<Document> ReplaceDocument(DocumentClient client, string databaseName, string collectionName, Document document)
-        {
-            ResourceResponse<Document> response = await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, document.Id), document);
-            return response.Resource;
         }
     }
 }

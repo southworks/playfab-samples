@@ -150,9 +150,9 @@ Some notes about the previous implementation:
 [cosmos-db-config-readme]: ./AzureFunctions/cosmos-db-configuration.md
 
 <!-- Azure Functions -->
-[start-match-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/StartMatch.cs
-[get-game-status-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/GetGameStatus.cs
-[make-multiplayer-move-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/MakeMultiplayerMove.cs
+[start-match-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/StartMatch.cs
+[get-game-status-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/GetGameStatus.cs
+[make-multiplayer-move-azf]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/MakeMultiplayerMove.cs
 
 <!-- Game Class-->
 [game-class-file]: ./TicTacToe/Assets/Scripts/Game.cs
@@ -178,9 +178,9 @@ Some notes about the previous implementation:
 [game-state-util-move-update]: ./AzureFunctions/TicTacToeFunctions/Util/GameStateUtil.cs#L18
 
 <!-- AZF Request and Responses -->
-[get-game-status-request]: ./AzureFunctions/TicTacToeFunctions/Models/Requests/GetGameStatusRequest.cs
-[make-multiplayer-move-response]: ./AzureFunctions/TicTacToeFunctions/Models/Responses/MakeMultiplayerMoveResponse.cs
-[make-multiplayer-move-response-player-move-result]: ./AzureFunctions/TicTacToeFunctions/Models/Responses/MakeMultiplayerMoveResponse.cs#L9
+[get-game-status-request]: ./AzureFunctions/TicTacToeFunctions/Models/Game/Requests/GetGameStatusRequest.cs
+[make-multiplayer-move-response]: ./AzureFunctions/TicTacToeFunctions/Models/Game/Responses/MakeMultiplayerMoveResponse.cs
+[make-multiplayer-move-response-player-move-result]: ./AzureFunctions/TicTacToeFunctions/Models/Game/Responses/MakeMultiplayerMoveResponse.cs#L9
 
 <!-- Index -->
 [summary]: #summary

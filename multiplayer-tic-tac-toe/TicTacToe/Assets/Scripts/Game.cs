@@ -1,11 +1,7 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-
 using System.Collections;
 using TicTacToe.Handlers;
+using TicTacToe.Helpers.Game;
 using TicTacToe.Models;
-using TicTacToe.Models.Helpers;
-using TicTacToe.Models.Responses;
-using TicTacToe.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,6 +26,8 @@ namespace TicTacToe
         #region Game State Properties
 
         public bool GameOver { get; private set; }
+
+        public bool Leaving { get; private set; } = false;
 
         public PlayerInfo CurrentPlayer { get; private set; }
 
@@ -64,15 +62,10 @@ namespace TicTacToe
             GameStatusText.GetComponent<Text>().enabled = true;
             GameStatusText.text = statusText;
         }
-        
-        private IEnumerator TriggerGameOver()
-        {
-            var winnerType = CurrentData.match.playerOneId == CurrentPlayer.PlayFabId ? GameWinnerType.PLAYER_ONE : GameWinnerType.PLAYER_TWO;
 
-            // Winner will always know first that match is over
-            // Loser must be the one deleting the SharedGroupData
-            if (CurrentData.gameState.winner != (int)winnerType
-                && CurrentData.gameState.winner != (int)GameWinnerType.NONE)
+        private IEnumerator TriggerGameOver(bool shouldDeleteSharedGroup)
+        {
+            if (shouldDeleteSharedGroup && !Leaving)
             {
                 var sharedGroupHandler = new SharedGroupHandler(CurrentPlayer);
                 yield return StartCoroutine(sharedGroupHandler.Delete(CurrentData.sharedGroupId));
@@ -100,6 +93,7 @@ namespace TicTacToe
 
         private void OnCLickLeaveMatch()
         {
+            Leaving = true;
             if (!GameOver && ApplicationModel.CurrentGameState != null && CurrentData.gameState.winner == 0)
             {
                 var playerWinnerId = CurrentData.match.playerOneId == CurrentPlayer.PlayFabId ? CurrentData.match.playerTwoId : CurrentData.match.playerOneId;
@@ -124,7 +118,7 @@ namespace TicTacToe
 
                 if (GameOver)
                 {
-                    yield return TriggerGameOver();
+                    yield return TriggerGameOver(!IsMyTurn());
                     break;
                 }
 
@@ -156,12 +150,6 @@ namespace TicTacToe
                 // Let the player make a move
                 yield return StartCoroutine(Board.WaitForNextMove());
 
-                if (GameOver)
-                {
-                    yield return TriggerGameOver();
-                    yield break;
-                }
-
                 UpdateGameStatus(Constants.PLAYER_MOVE_PROCESSING);
 
                 // Get and execute the player move
@@ -185,8 +173,6 @@ namespace TicTacToe
                 {
                     UpdateGameStatus(Constants.PLAYER_MOVE_INVALID);
                 }
-
-                yield return null;
             }
         }
 

@@ -77,6 +77,8 @@ Next, the current availability of the `MatchLobby` is decreased and its new stat
 
 Finally, the Shared Group Data is returned to the Game which starts the [Start Match][start-match-readme] process.
 
+> NOTE: As this function might be called by more than one players that want to join to the same Match Lobby at the same time, we've implemented a solution for avoiding that this race-condition context causes problems in the game-play. The solution is implemented [here][match-lobby-util-race-condition-fix], where we first try to update the Cosmos DB related document, and for ensuring that only one of those possible changes apply, we base our update on the *etag* property of the document. This *etag* works as a Document version control, and it will be checked before doing the update. So, if its value has been updated in the time between after we retrieve the Document and the time before we update it, we won't be able to perform the update as the *etag* was updated by other Player, and this will grant that only one of those possible changes happens.
+
 <!-- Index Links -->
 [summary]: #summary
 [prerequisites]: #prerequisites
@@ -93,12 +95,13 @@ Finally, the Shared Group Data is returned to the Game which starts the [Start M
 [start-match-readme]: ./start-match.md
 
 <!-- AZURE FUNCTIONS -->
-[join-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/JoinMatchLobby.cs
+[join-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/JoinMatchLobby.cs
 [retrieving-the-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Util/SharedGroupDataUtil.cs#L66
 [add-member-to-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Util/SharedGroupDataUtil.cs#L28
 [update-the-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Util/SharedGroupDataUtil.cs#L41
 [insert-match-lobby-into-cosmos-db]: ./AzureFunctions/TicTacToeFunctions/Util/MatchlobbyUtil.cs#L34
-[retrieve-the-master-player-account-id-from-the-function-context]: ./AzureFunctions/TicTacToeFunctions/Functions/JoinMatchLobby.cs#L28
+[retrieve-the-master-player-account-id-from-the-function-context]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/JoinMatchLobby.cs#L28
+[match-lobby-util-race-condition-fix]: ./AzureFunctions/TicTacToeFunctions/Util/MatchlobbyUtil.cs#L75
 
 <!-- Game -->
 [match-lobby-handler]: ./TicTacToe/Assets/Scripts/Handlers/MatchlobbyHandler.cs#L21

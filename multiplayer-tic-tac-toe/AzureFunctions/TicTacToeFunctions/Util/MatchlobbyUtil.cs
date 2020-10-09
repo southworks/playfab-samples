@@ -1,11 +1,10 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
-using Microsoft.Azure.Documents.Client;
+﻿using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.WebJobs;
 using PlayFab;
 using PlayFab.GroupsModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TicTacToeFunctions.Models;
@@ -36,13 +35,22 @@ namespace TicTacToeFunctions.Util
             return sharedGroupDataUpdated;
         }
 
-        public static async Task<TicTacToeSharedGroupData> JoinMatchLobby(PlayFabAuthenticationContext authenticationContext, string matchLobbyId, string playerTwo, IAsyncCollector<MatchLobby> matchlobbyCollector)
+        public static async Task<TicTacToeSharedGroupData> JoinMatchLobby(PlayFabAuthenticationContext authenticationContext, string matchLobbyId, string playerTwo, DocumentClient documentClient)
         {
             var tttShareGroupData = await SharedGroupDataUtil.GetAsync(authenticationContext, matchLobbyId);
+
+            // we need the document reference for the Cosmos DB for using its "etag",
+            // which avoids having race-conditions when writing in DDBB.
+            var documentLobby = await GetMatchLobbyFromClient(documentClient, matchLobbyId);
 
             if (tttShareGroupData?.Match == null)
             {
                 throw new Exception("Match not exists");
+            }
+
+            if (documentLobby == null)
+            {
+                throw new Exception("Match Lobby does not exist in Database");
             }
 
             if (!string.IsNullOrWhiteSpace(tttShareGroupData.Match.PlayerOneId) && !string.IsNullOrWhiteSpace(tttShareGroupData.Match.PlayerTwoId))
@@ -56,6 +64,15 @@ namespace TicTacToeFunctions.Util
             }
 
             tttShareGroupData.Match.PlayerTwoId = playerTwo;
+            tttShareGroupData.MatchLobby.CurrentAvailability--;
+
+            // update the current availability in Cosmos DB
+            documentLobby.CurrentAvailability = tttShareGroupData.MatchLobby.CurrentAvailability;
+
+            // This method will update the Cosmos DB document with the newest availability.
+            // If there was an outside-modification by other player (race condition),
+            // this will throw an error and the player won't be able to join this Lobby.
+            await DocumentClientManager.ReplaceDocument(documentClient, documentLobby, Constants.DATABASE_NAME, Constants.MATCH_LOBBY_TABLE_NAME);
 
             await SharedGroupDataUtil.AddMembersAsync(
                 authenticationContext,
@@ -65,10 +82,7 @@ namespace TicTacToeFunctions.Util
                 }
             );
 
-            tttShareGroupData.MatchLobby.CurrentAvailability--;
             await SharedGroupDataUtil.UpdateAsync(authenticationContext, tttShareGroupData);
-
-            await matchlobbyCollector.AddAsync(tttShareGroupData.MatchLobby);
 
             return tttShareGroupData;
         }
@@ -147,6 +161,13 @@ namespace TicTacToeFunctions.Util
                 Id = id,
                 Type = type
             };
+        }
+
+        private static async Task<MatchLobby> GetMatchLobbyFromClient(DocumentClient documentClient, string matchLobbyId)
+        {
+            var filteredLobbies = await GetMatchLobbyInfoAsync(documentClient, (matchLobby) => matchLobby.id == matchLobbyId);
+
+            return filteredLobbies.First() ?? null;
         }
     }
 }

@@ -166,12 +166,12 @@ Finally, the Tic-Tac-Toe unity game receives the data from our Azure Function (c
 
 [unity-game-project]: ./TicTacToe
 [azure-function-project]: ./AzureFunctions
-[azure-function-search-match-lobbies]: ./AzureFunctions/TicTacToeFunctions/Functions/SearchMatchlobbies.cs
-[azure-function-search-match-lobbies-return-data]: ./AzureFunctions/TicTacToeFunctions/Functions/SearchMatchlobbies.cs#L31s
-[search-match-lobbies-request-azf]: ./AzureFunctions/TicTacToeFunctions/Models/Requests/SearchMatchLobbiesRequest.cs
+[azure-function-search-match-lobbies]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/SearchMatchlobbies.cs
+[azure-function-search-match-lobbies-return-data]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/SearchMatchlobbies.cs#L31s
+[search-match-lobbies-request-azf]: ./AzureFunctions/TicTacToeFunctions/Models/Service/Requests/SearchMatchLobbiesRequest.cs
 
-[search-match-lobbies-request]: ./TicTacToe/Assets/Scripts/Models/Requests/SearchMatchLobbiesRequest.cs
-[azure-function-search-match-lobbies-cosmos-query]: ./AzureFunctions/TicTacToeFunctions/Functions/SearchMatchlobbies.cs#L27
+[search-match-lobbies-request]: ./TicTacToe/Assets/Scripts/Models/Service/Requests/SearchMatchLobbiesRequest.cs
+[azure-function-search-match-lobbies-cosmos-query]: ./AzureFunctions/TicTacToeFunctions/Functions/Game/SearchMatchlobbies.cs#L27
 
 [match-lobby-handler]: ./TicTacToe/Assets/Scripts/Handlers/MatchlobbyHandler.cs
 [match-lobby-handler-get-lobby-list]: ./TicTacToe/Assets/Scripts/Handlers/MatchlobbyHandler.cs#L71

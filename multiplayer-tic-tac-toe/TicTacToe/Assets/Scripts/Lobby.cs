@@ -1,12 +1,10 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
-using PlayFab.MultiplayerModels;
+﻿using PlayFab.MultiplayerModels;
 using System;
 using System.Collections;
 using System.Linq;
 using TicTacToe.Handlers;
+using TicTacToe.Helpers.Service;
 using TicTacToe.Models;
-using TicTacToe.Models.Helpers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -319,8 +317,6 @@ namespace TicTacToe
             if (ApplicationModel.CurrentMatchLobby == null)
             {
                 UpdateGameStatus(Constants.MATCH_LOBBY_JOIN_ERROR);
-                var delete = new MatchLobbyHandler(ApplicationModel.CurrentPlayer);
-                yield return delete.DeleteMatchLobby(ApplicationModel.CurrentMatchLobbyToJoin.matchLobbyId);
             }
             else
             {
@@ -451,7 +447,7 @@ namespace TicTacToe
 
             ApplicationModel.MatchLobbyList = matchLobbyHandler.MatchLobbyList;
             ApplicationModel.MatchLobbyListHasChanged = true;
-            UpdateGameStatus(ApplicationModel.MatchLobbyList.Count + Constants.MATCH_LOBBY_FOUND);
+            UpdateGameStatus((ApplicationModel.MatchLobbyList?.Count ?? default) + Constants.MATCH_LOBBY_FOUND);
         }
 
         #endregion Search
