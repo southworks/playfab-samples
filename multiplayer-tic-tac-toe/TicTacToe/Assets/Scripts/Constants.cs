@@ -1,5 +1,3 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-
 public class Constants
 {
     // FOR DEMO PURPOSES ONLY

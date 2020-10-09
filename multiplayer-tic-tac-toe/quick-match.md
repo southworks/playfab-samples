@@ -7,18 +7,18 @@
 - [Prerequisites](#prerequisites)
 - [Implementation](#implementation)
 - [Player One Flow](#player-one-flow)
-  - [Unity Game](#unity-game---p1)
-    - [Matchmaking Ticket Creation](#matchmaking-ticket-creation---p1)
-    - [Getting the Matchmaking Ticket Status](#getting-the-matchmaking-ticket-status---p1)
-    - [Creating Shared Group](#creating-shared-group---p1)
-  - [Azure Function App: CreateSharedGroup Function](#azure-function-app--createsharedgroup-function)
-  - [Azure Function App: GetSharedGroup Function](#azure-function-app--getsharedgroup-function)
+  - [Unity Game](#unity-game-p1)
+    - [Matchmaking Ticket Creation](#matchmaking-ticket-creation-p1)
+    - [Getting the Matchmaking Ticket Status](#getting-the-matchmaking-ticket-status-p1)
+    - [Creating Shared Group](#creating-shared-group-p1)
+  - [Azure Function App: CreateSharedGroup Function](#azure-function-app-createsharedgroup-function)
+  - [Azure Function App: GetSharedGroup Function](#azure-function-app-getsharedgroup-function)
 - [Player Two Flow](#player-two-flow)
-  - [Unity Game](#unity-game---p2)
-    - [Matchmaking Ticket Creation](#matchmaking-ticket-creation---p2)
-    - [Getting the Matchmaking Ticket Status](#getting-the-matchmaking-ticket-status---p2)
-    - [Joining to the Share Group](#joining-to-the-share-group---p2)
-  - [Azure Function App: Join Match Function](#azure-function-app--join-match-function)
+  - [Unity Game](#unity-game-p2)
+    - [Matchmaking Ticket Creation](#matchmaking-ticket-creation-p2)
+    - [Getting the Matchmaking Ticket Status](#getting-the-matchmaking-ticket-status-p2)
+    - [Joining to the Share Group](#joining-to-the-share-group-p2)
+  - [Azure Function App: Join Match Function](#azure-function-app-join-match-function)
 
 ## Summary
 
@@ -209,6 +209,8 @@ The next step consists in joining into an existing Match. For doing this, we are
 
 #### Azure Function App: Join Match Function
 
+> Disclaimer: This function is meant to be used in a process where only two players are matched to play against, using the PlayFab's Matchmaking feature, where only one of these players will be calling it. In case you need a similar solution but for a situation where more than two players will (or could) be calling this function, we strongly recommend to check the [JoinMatchLobby][azf-join-match-lobby] function of this project, as there we manage some situations that could be happening in those cases, as, for example, a race condition situation.
+
 With [this][azf-join-match] function we are able to join the P2 to an existing Shared Group.
 
 This is the implementation of the [JoinMatch][azf-join-match] Azure Function:
@@ -253,9 +255,10 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 [playfab-matchmaking-quickstart]: https://docs.microsoft.com/gaming/playfab/features/multiplayer/matchmaking/quickstart
 
 <!-- AZURE FUNCTIONS -->
-[azf-create-shared-group]: ./AzureFunctions/TicTacToeFunctions/Functions/CreateSharedGroup.cs
-[azf-get-shared-group]: ./AzureFunctions/TicTacToeFunctions/Functions/GetSharedGroup.cs
-[azf-join-match]: ./AzureFunctions/TicTacToeFunctions/Functions/JoinMatch.cs
+[azf-create-shared-group]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/CreateSharedGroup.cs
+[azf-get-shared-group]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/GetSharedGroup.cs
+[azf-join-match]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/JoinMatch.cs
+[azf-join-match-lobby]: ./AzureFunctions/TicTacToeFunctions/Functions/Service/JoinMatchLobby.cs
 
 [azf-model-ttt-shared-group-data]: ./AzureFunctions/TicTacToeFunctions/Models/TicTacToeSharedGroupData.cs
 [azf-model-ttt-shared-group-data-match]: ./AzureFunctions/TicTacToeFunctions/Models/TicTacToeSharedGroupData.cs#L11
@@ -317,14 +320,14 @@ In this Azure Function we use the next PlayFab's API methods, which we've implem
 [prerequisites]: #prerequisites
 [implementation]: #implementation
 [player-one-flow]: #player-one-flow
-[unity-game---p1]: #unity-game---p1
-[matchmaking-ticket-creation---p1]: #matchmaking-ticket-creation---p1
-[getting-the-matchmaking-ticket-status---p1]: #getting-the-matchmaking-ticket-status---p1
+[unity-game---p1]: #unity-game-p1
+[matchmaking-ticket-creation---p1]: #matchmaking-ticket-creation-p1
+[getting-the-matchmaking-ticket-status---p1]: #getting-the-matchmaking-ticket-status-p1
 [azure-function-app-createsharedgroup-function]: #azure-function-app-createSharedGroup-function
 [azure-function-app-getsharedgroup-function]: #azure-function-app-getsharedgroup-function
 [player-two-flow]: #player-two-flow
-[unity-game---p2]: #unity-game---p2
-[matchmaking-ticket-creation---p2]: #matchmaking-ticket-creation---p2
-[getting-the-matchmaking-ticket-status---p2]: #getting-the-matchmaking-ticket-status---p2
-[joining-to-the-share-group---p2]: #joining-to-the-share-group---p2
-[azure-function-app--join-match-function]: #azure-function-app--join-match-function
+[unity-game---p2]: #unity-game-p2
+[matchmaking-ticket-creation---p2]: #matchmaking-ticket-creation-p2
+[getting-the-matchmaking-ticket-status---p2]: #getting-the-matchmaking-ticket-status-p2
+[joining-to-the-share-group---p2]: #joining-to-the-share-group-p2
+[azure-function-app--join-match-function]: #azure-function-app-join-match-function

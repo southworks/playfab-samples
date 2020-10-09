@@ -1,7 +1,7 @@
 using PlayFab;
 using System.Collections;
 using TicTacToe.Models;
-using TicTacToe.Models.Requests;
+using TicTacToe.Models.Service.Requests;
 using UnityEngine;
 
 namespace TicTacToe.Handlers

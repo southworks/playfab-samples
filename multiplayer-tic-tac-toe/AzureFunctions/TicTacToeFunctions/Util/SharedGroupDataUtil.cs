@@ -1,6 +1,4 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PlayFab;
 using PlayFab.ServerModels;
 using System;

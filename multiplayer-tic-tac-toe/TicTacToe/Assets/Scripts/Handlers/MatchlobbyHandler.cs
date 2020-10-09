@@ -1,13 +1,11 @@
-﻿// Copyright (C) Microsoft Corporation. All rights reserved.
-
-using PlayFab;
+﻿using PlayFab;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TicTacToe.Handlers;
-using TicTacToe.Helpers;
+using TicTacToe.Helpers.Service;
 using TicTacToe.Models;
-using TicTacToe.Models.Requests;
+using TicTacToe.Models.Service.Requests;
 using UnityEngine;
 
 public class MatchLobbyHandler : RequestHandler

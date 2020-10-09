@@ -1,4 +1,3 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
 using PlayFab.AuthenticationModels;
 
 namespace TicTacToe.Models

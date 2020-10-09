@@ -1,9 +1,7 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-
 using PlayFab;
 using System.Threading.Tasks;
+using TicTacToeFunctions.Helpers;
 using TicTacToeFunctions.Models;
-using TicTacToeFunctions.Models.Helpers;
 
 namespace TicTacToeFunctions.Util
 {

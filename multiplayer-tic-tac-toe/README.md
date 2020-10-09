@@ -51,6 +51,8 @@ This means that the TTL of a shared group data instance is the duration of a mat
 
 As a double check, if the player still has the shared group data in the game’s context when leaving the match, it sends a request to delete the Shared Group Data (SGD) instance.
 
+> **As [PlayFab's documentation][sdg-disclamer] states, Shared Group Data should not be used by groups larger than a dozen or so players, at most**.
+
 ### Automatic matchmaking
 
 With two player mode implemented, we had to implement a way to match two players (P1 and P2) together.
@@ -123,6 +125,7 @@ For more detailed information regarding the Match Lobby feature, you can check t
 [playfab-matchmaking-doc]: https://docs.microsoft.com/gaming/playfab/features/multiplayer/matchmaking/
 [tic-tac-toe-base-sample]: https://github.com/PlayFab/PlayFab-Samples/tree/master/Samples/Unity/TicTacToe
 [unity-main-page]: https://unity.com/
+[sdg-disclamer]: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
 
 <!-- Internal documents -->
 [create-match-lobby]: ./create-match-lobby.md

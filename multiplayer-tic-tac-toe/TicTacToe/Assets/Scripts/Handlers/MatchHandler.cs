@@ -1,9 +1,7 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-
 using PlayFab;
 using System.Collections;
 using TicTacToe.Models;
-using TicTacToe.Models.Requests;
+using TicTacToe.Models.Game.Requests;
 using UnityEngine;
 
 namespace TicTacToe.Handlers

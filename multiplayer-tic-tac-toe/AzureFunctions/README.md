@@ -86,20 +86,20 @@ For getting your Azure Functions URLs, following the first steps of [this tutori
 [technologies]: #technologies
 
 [AZF-project]: TicTacToeFunctions
-[CreateMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/CreateMatchLobby.cs
-[CreateSharedGroup-AZF-Source-code]: TicTacToeFunctions/Functions/CreateSharedGroup.cs
-[DeleteMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/DeleteMatchLobby.cs
-[DeleteSharedGroup-AZF-Source-code]: TicTacToeFunctions/Functions/DeleteSharedGroup.cs
-[GetGameStatus-AZF-source-code]: TicTacToeFunctions/Functions/GetGameStatus.cs
+[CreateMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/Service/CreateMatchLobby.cs
+[CreateSharedGroup-AZF-Source-code]: TicTacToeFunctions/Functions/Service/CreateSharedGroup.cs
+[DeleteMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/Service/DeleteMatchLobby.cs
+[DeleteSharedGroup-AZF-Source-code]: TicTacToeFunctions/Functions/Service/DeleteSharedGroup.cs
+[GetGameStatus-AZF-source-code]: TicTacToeFunctions/Functions/Game/GetGameStatus.cs
 [GetMatchlobbyInfo-AZF-source-code]: TicTacToeFunctions/Functions/GetMatchlobbyInfo.cs
-[GetSharedGroup-AZF-source-code]: TicTacToeFunctions/Functions/GetSharedGroup.cs
-[JoinMatch-AZF-source-code]: TicTacToeFunctions/Functions/JoinMatch.cs
-[JoinMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/JoinMatchLobby.cs
-[MakeMultiplayerMove-AZF-source-code]: TicTacToeFunctions/Functions/MakeMultiplayerMove.cs
+[GetSharedGroup-AZF-source-code]: TicTacToeFunctions/Functions/Service/GetSharedGroup.cs
+[JoinMatch-AZF-source-code]: TicTacToeFunctions/Functions/Service/JoinMatch.cs
+[JoinMatchLobby-AZF-source-code]: TicTacToeFunctions/Functions/Service/JoinMatchLobby.cs
+[MakeMultiplayerMove-AZF-source-code]: TicTacToeFunctions/Functions/Game/MakeMultiplayerMove.cs
 [RestartMultiplayerGame-AZF-source-code]: TicTacToeFunctions/Functions/RestartMultiplayerGame.cs
-[SearchMatchlobbies-AZF-source-code]: TicTacToeFunctions/Functions/SearchMatchlobbies.cs
-[SetGameWinner-AZF-source-code]: TicTacToeFunctions/Functions/SetGameWinner.cs
-[StartMatch-AZF-source-code]: TicTacToeFunctions/Functions/StartMatch.cs
+[SearchMatchlobbies-AZF-source-code]: TicTacToeFunctions/Functions/Game/SearchMatchlobbies.cs
+[SetGameWinner-AZF-source-code]: TicTacToeFunctions/Functions/Game/SetGameWinner.cs
+[StartMatch-AZF-source-code]: TicTacToeFunctions/Functions/Game/StartMatch.cs
 
 [azure-main-page]: https://azure.microsoft.com/
 [azure-account]: https://azure.microsoft.com/free/
