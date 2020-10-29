@@ -120,4 +120,4 @@ The following will guide you through the [PlayFab][playfab-main-page] configurat
 [matchmaking-queue-02]: ../document-assets/images/matchmaking-queue-02.png "Matchmaking queue - TicTacToeQuickMatch."
 
 [unity-constants-file]: ./Assets/Scripts/Constants.cs
-[unity-constants-file-title-id]: ./Assets/Scripts/Constants.cs#L9
+[unity-constants-file-title-id]: ./Assets/Scripts/Constants.cs#L7
