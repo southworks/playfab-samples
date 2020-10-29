@@ -1,5 +1,3 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-
 namespace PlayFab.Samples
 {
     using System;
