@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "PLAYFAB_TITLE_ID": "<your-title-id>",
+    "PLAYFAB_DEV_SECRET_KEY": "<your-secret-key>"
+  },
+  "ConnectionStrings": {
+    "PlayFabTicTacToeCosmosDB": {
+      "ConnectionString": "<cosmos-db-connection-string>",
+      "ProviderName": "System.Data.SqlClient"
+    }
+  }
+}

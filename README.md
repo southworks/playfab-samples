@@ -7,6 +7,7 @@ This repository contains complete working samples that demonstrate best-practice
 | Sample | PlayFab features |
 | - | - |
 |[Multiplayer Tic-Tac-Toe](#multiplayer-tic-tac-toe) | Matchmaking Queues, Shared Group, Login |
+|[P2P Multiplayer Tic-Tac-Toe](#p2p-multiplayer-tic-tac-toe) | Matchmaking Queues, PlayFab Party, Login |
 
 ### Multiplayer Tic-Tac-Toe
 
@@ -18,10 +19,28 @@ This project also has a set of specifics instructions on how to implement these 
 - How to support Match Lobbies in a multiplayer game.
   - This includes an integration with [Cosmos DB][cosmos-db-doc] to support Match Lobby listing.
 
+> **As [PlayFab's documentation][sdg-disclamer] states, Shared Group Data should not be used by groups larger than a dozen or so players, at most**.
+
 #### PlayFab Features
 
 - **Matchmaking Queues**. Used to match random players together.
 - **Shared Group**. Used to store the game state, and for manual matchmaking through Match Lobbies.
+- **Basic Login**. Used to identify each game instance as a different user.
+
+### P2P Multiplayer Tic-Tac-Toe
+
+The [P2P Multiplayer Tic-Tac-Toe][p2p-tic-tac-toe] sample demonstrates how to configure a multiplayer Tic-Tac-Toe game using [Unity][unity-main-page], [PlayFab][playfab-website], [Azure Services][azure-main-page] and [Cosmos DB][cosmos-db-doc].
+
+This project also has a set of specifics instructions on how to implement these features:
+
+- How to support Match Lobbies in a multiplayer game.
+- How to turn a single player game into multiplayer.
+- How to use PlayFab Party to manage communication between players.
+
+#### PlayFab Features
+
+- **Matchmaking Queues**. Used to match random players together.
+- **PlayFab Party**. Used to manage most communications between players during the game.
 - **Basic Login**. Used to identify each game instance as a different user.
 
 ## Feedback
@@ -34,9 +53,11 @@ This repository is covered under the [MIT License](./LICENSE).
 
 <!-- Internal links -->
 [multiplayer-tic-tac-toe]: ./multiplayer-tic-tac-toe
+[p2p-tic-tac-toe]: ./p2p-tic-tac-toe
 
 <!-- External links -->
 [azure-main-page]: https://azure.microsoft.com/
 [cosmos-db-doc]: https://docs.microsoft.com/azure/cosmos-db/introduction
 [playfab-website]: https://playfab.com/
 [unity-main-page]: https://unity.com/
+[sdg-disclamer]: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
