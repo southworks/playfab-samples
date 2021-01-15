@@ -1,0 +1,32 @@
+trigger:
+- none
+pr:
+  branches:
+    include:
+      - master
+pool:
+  vmImage: 'windows-latest'
+variables:
+  - group: 'fantasy-soccer-testing-VG'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    includeNuGetOrg: true
+    workingDirectory: '$(project_path)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build project'
+  inputs:
+    command: 'build'
+    workingDirectory: '$(project_path)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
+  inputs:
+    command: 'test'
+    projects: '**/*.Tests.csproj'
+    workingDirectory: '$(project_path)'

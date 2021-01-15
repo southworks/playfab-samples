@@ -1,0 +1,63 @@
+pr:
+ branches:
+   include:
+     - master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: 'fantasy-soccer-deployment-VG'
+
+jobs:
+  - job: BuildFantasySoccerWebApp
+    displayName: "Build Fantasy Soccer Web App project"
+    steps:
+      - task: UseDotNet@2
+        inputs:
+          packageType: 'sdk'
+          version: '3.1.x'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'restore'
+          projects: '$(fantasy-soccer-solution-path)/$(AZFAppName)'
+          feedsToUse: 'select'
+        displayName: 'Restore Azure Function App'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'restore'
+          projects: '$(fantasy-soccer-solution-path)/$(WebAppProjectName)'
+          feedsToUse: 'select'
+        displayName: 'Restore Web App'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'publish'
+          publishWebProjects: false
+          projects: '$(fantasy-soccer-solution-path)/$(WebAppProjectName)'
+          arguments: '-c Release -o $(fantasy-soccer-solution-path)/$(WebAppProjectName)-publish'
+        displayName: 'Publish Web App'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'publish'
+          publishWebProjects: false
+          modifyOutputPath: false
+          projects: '$(fantasy-soccer-solution-path)/$(AZFAppName)'
+          arguments: '-c Release -o $(fantasy-soccer-solution-path)/$(AZFAppName)-publish'
+        displayName: 'Publish Azure Function App'
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(fantasy-soccer-solution-path)/$(WebAppProjectName)-publish'
+          Contents: '**/*.zip'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        displayName: 'Copy Web App project files'
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(fantasy-soccer-solution-path)/$(AZFAppName)-publish'
+          Contents: '**/*.zip'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        displayName: 'Copy Azure Function App project files'
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: '$(dropArtifactName)'
+          publishLocation: 'Container'

@@ -1,0 +1,30 @@
+﻿@using FantasySoccer.Schema.Models.CosmosDB
+@model List<UserTransaction>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row card lineup-card vertical-scrollable">
+    <table class="table table-hover table-borderless table-striped">
+        <thead class="thead-southworks-orange">
+            <tr>
+                <th class="col-4">Date</th>
+                <th class="col-5">Player</th>
+                <th class="col-3">Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model)
+            {
+                <tr>
+                    <td class="col-4">@String.Format("{0:yyyy-MM-dd HH:mm}", transaction.OperationDate)</td>
+                    <td class="col-5">@transaction.InvolvedFutbolPlayerFullName</td>
+                    <td class="col-3">@transaction.OperationType</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

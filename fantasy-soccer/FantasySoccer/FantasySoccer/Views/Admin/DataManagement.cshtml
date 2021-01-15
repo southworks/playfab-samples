@@ -1,0 +1,75 @@
+﻿@{
+    var modalId = "dataManagementModal";
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<ul class="list-group" style="margin-top: 20px;">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-4" style="padding-top:10px;">
+                Teams
+            </div>
+            <div class="col-8 text-right">
+                <div id="team-spinner-group" class="spinner-group">
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                </div>
+                <button id="button-clean" class="btn btn-southworks" type="button" onclick='management.cleanEntity("@modalId", "team")' data-toggle="tooltip" title="Clean all teams' configuration">
+                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                </button>
+                @using (Html.BeginForm("DownloadTeams", "Admin", FormMethod.Post, new { @class = "inline-form" }))
+                {
+                    <button class="btn btn-southworks" type="submit" data-toggle="tooltip" title="Download a file with all teams' configuration">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </button>
+                }
+                <label id="label-upload" for="teamFile" class="btn btn-southworks label-input-file" data-toggle="tooltip" title="Upload a file with all teams' configuration">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                </label>
+                <input type="file" id="teamFile" name="teamFile" onchange='management.uploadEntity("@modalId", "team")' class="inputfile" />
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-4" style="padding-top:10px;">
+                Players
+            </div>
+            <div class="col-8 text-right">
+                <div id="player-spinner-group" class="spinner-group">
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                </div>
+                @using (Html.BeginForm("DownloadPlayers", "Admin", FormMethod.Post, new { @class = "inline-form" }))
+                {
+                    <button class="btn btn-southworks" type="submit" data-toggle="tooltip" title="Download a file with all player' configuration">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </button>
+                }
+                <label id="label-upload" for="playerFile" class="btn btn-southworks label-input-file" data-toggle="tooltip" title="Upload a file with all player' configuration">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                </label>
+                <input type="file" id="playerFile" name="playerFile" onchange='management.uploadEntity("@modalId", "player")' class="inputfile" />
+            </div>
+        </div>
+    </li>
+</ul>
+
+<div id="@modalId"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            createCustomModal("@modalId");
+        });
+    </script>
+
+    <script src="~/js/admin/management.js" asp-append-version="true"></script>
+}

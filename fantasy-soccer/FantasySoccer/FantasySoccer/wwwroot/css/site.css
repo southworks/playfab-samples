@@ -1,0 +1,236 @@
+﻿:root {
+    --southworks-pink: #ECBAA8;
+    --southworks-green: #13322B;
+    --southworks-orange: #FC4C02;
+    --southworks-orange-hover: #883F16;
+    --southworks-button-orange-hover: #d9441a;
+    --southworks-light-grayish-orange: #F3E9E2;
+    --southworks-light-green: #80E0A7;
+}
+
+/* Sticky footer styles */
+@font-face {
+    font-family: SharpGrotesk;
+    src: url(../fonts/SharpGrotesk-BookNo22.woff);
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-swap-player {
+        margin-bottom: 4px;
+    }
+}
+
+body {
+    /* Margin bottom by footer height */
+    font-family: SharpGrotesk;
+    margin-bottom: 60px;
+    background-color: var(--southworks-green);
+    color: var(--southworks-orange);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: var(--southworks-orange);
+}
+
+a:hover {
+    color: var(--southworks-orange-hover);
+}
+
+/* navbar */
+.navbar {
+    background-color: var(--southworks-green);
+    border-bottom: 1px solid var(--southworks-orange);
+}
+
+.navbar-toggler-icon {
+    color: red !important;
+}
+
+.navbar-toggler {
+    border: 1px solid var(--southworks-orange-hover);
+}
+
+.hamburguer-icon {
+    color: var(--southworks-orange);
+}
+
+.footer {
+    color: var(--southworks-orange);
+}
+
+.footer {
+    border-top: 1px solid var(--southworks-orange);
+}
+
+.badge-balance {
+    color: var(--southworks-orange);
+    background-color: var(--southworks-pink);
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .badge-balance {
+        font-size: 14px;
+    }
+}
+
+.dropdown-menu {
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.show > .btn-primary.dropdown-toggle {
+    background-color: var(--southworks-orange)
+}
+
+.dropdown.show a {
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.dropdown-toggle{
+
+}
+
+.dropdown-user {
+    background-color: var(--southworks-green);
+}
+
+.dropdown-user > a {
+    color: var(--southworks-orange);
+}
+
+.dropdown-user > a:hover {
+    color: var(--southworks-orange-hover);
+    background-color: var(--southworks-green);
+    text-decoration: none;
+}
+
+.btn-southworks {
+    background-color: var(--southworks-orange);
+    border-color: var(--southworks-orange);
+    color: white
+}
+
+.btn-southworks:hover {
+    background-color: var(--southworks-button-orange-hover);
+    border-color: var(--southworks-button-orange-hover);
+    color: white
+}
+
+.create-account-link {
+    font-size: 0.75rem;
+}
+
+.sign-in-separator {
+    background: var(--southworks-orange);
+}
+
+.lineup-card {
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.alert.alert-selling-status {
+    position: fixed;
+    top: 5px;
+    left: 25%;
+    width: 50%;
+    z-index: 100;
+}
+
+.thead-southworks-orange {
+    background-color: var(--southworks-orange);
+    color: var(--southworks-light-grayish-orange);
+}
+
+.vertical-scrollable {
+    display: block;
+    overflow-y: auto;
+    max-height: 65vh;
+}
+
+.card-body-southworks {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: var(--southworks-pink) !important;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.label-input-file {
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.spinner-group {
+    display: none;
+}
+
+.text-southworks {
+    color: var(--southworks-orange);
+}
+
+.li .page-link {
+    color: var(--southworks-orange);
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.page-item .page-link {
+    color: var(--southworks-orange);
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.page-item.active .page-link {
+    background-color: var(--southworks-orange);
+    border-color: var(--southworks-orange);
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--southworks-light-grayish-orange);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.message-team-with-players {
+    display: none;
+}
+
+.message-team-empty {
+    display: block;
+}
+
+#team-empty p {
+    margin-bottom: 0px;
+}

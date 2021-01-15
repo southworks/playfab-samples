@@ -1,0 +1,52 @@
+﻿@model FantasySoccer.Models.Authentication.SignUp
+@{
+    ViewData["Title"] = "Sign Up with PlayFab";
+}
+
+<form asp-controller="Auth" asp-action="SignUp" asp-antiforgery="true">
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="DisplayName" class="control-label"></label>
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="PasswordConfirmation" class="control-label"></label>
+                <input asp-for="PasswordConfirmation" class="form-control" />
+                <span asp-validation-for="PasswordConfirmation" class="text-danger"></span>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+        {
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                </div>
+            </div>
+        }
+
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-southworks" />
+            </div>
+        </div>
+    </div>
+</form>
