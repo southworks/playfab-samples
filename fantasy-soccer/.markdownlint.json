@@ -1,0 +1,8 @@
+{
+    "default": true,
+    "no-hard-tabs": true,
+    "MD003": { "style": "consistent" },
+    "MD007": { "indent": 2 },
+    "MD013": false,
+    "MD033": { "allowed_elements": [ "br", "p" ] }
+}

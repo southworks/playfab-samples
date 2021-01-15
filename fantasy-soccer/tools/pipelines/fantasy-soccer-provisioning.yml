@@ -1,0 +1,31 @@
+trigger:
+- none
+
+pr:
+- none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: 'fantasy-soccer-provisioning-script-VG'
+- group: 'fantasy-soccer-service-principal'
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: $(SpName)
+    ScriptType: 'InlineScript'
+    azurePowerShellVersion: 'LatestVersion'
+    Inline: |
+      az login --service-principal --username $env:MAPPED_APP_ID --password $env:MAPPED_SECRET --tenant $env:MAPPED_TENANT_ID
+
+      .\fantasy-soccer\tools\provisioning-script\provisioning-script.ps1 -Environment $(Environment) -ProjectName $(ProjectName) -Region $(Region) -ClientId $env:MAPPED_CLIENT_ID -ClientSecret $env:MAPPED_CLIENT_SECRET -PlayFabTitleId $env:MAPPED_PLAYFAB_TITLE_ID -PlayFabSecretKey $env:MAPPED_PLAYFAB_SECRET_KEY
+  env:
+    MAPPED_APP_ID: $(AppId)
+    MAPPED_SECRET: $(Secret)
+    MAPPED_TENANT_ID: $(TenantId)
+    MAPPED_CLIENT_ID: $(ClientId)
+    MAPPED_CLIENT_SECRET: $(ClientSecret)
+    MAPPED_PLAYFAB_SECRET_KEY: $(PlayFabSecretKey)
+    MAPPED_PLAYFAB_TITLE_ID: $(PlayFabTitleId)

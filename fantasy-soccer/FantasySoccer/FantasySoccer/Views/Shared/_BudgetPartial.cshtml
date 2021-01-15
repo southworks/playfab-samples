@@ -1,0 +1,8 @@
+﻿@using FantasySoccer.Models.Authentication
+
+@if (@User.Claims.FirstOrDefault(c => c.Type == @PlayFabClaims.Budget) != null)
+{
+    <span id="budget" class="badge badge-pill badge-balance align-middle">
+        @User.Claims.FirstOrDefault(c => c.Type == @PlayFabClaims.Budget)?.Value
+    </span>
+}

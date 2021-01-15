@@ -1,0 +1,38 @@
+﻿@using FantasySoccer.Schema.Models
+@model FantasySoccer.Schema.Models.UserPlayerStatistics
+@{
+    ViewData["Title"] = "User Statistics";
+}
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row card lineup-card vertical-scrollable">
+    <div class="table-responsive">
+        <table class="table table-hover table-borderless table-striped">
+            <thead class="thead-southworks-orange">
+                <tr>
+                    <th class="align-middle">Statistic</th>
+                    <th class="align-middle">Score</th>
+                    <th class="align-middle">Round #</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model?.StatisticItems != null && Model.StatisticItems.Any())
+                {
+                    @foreach (var statisticItem in Model.StatisticItems.OrderBy(x => x.Order))
+                    {
+                        <partial name="_UserPlayerStatisticsTbody" model="new UserPlayerStatisticItem { Description = statisticItem.Description, Round = statisticItem.Round, Score = statisticItem.Score}" />
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td class="align-middle text-center" colspan="3">There are no statistics available</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

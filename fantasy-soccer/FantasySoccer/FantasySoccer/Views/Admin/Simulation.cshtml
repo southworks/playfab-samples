@@ -1,0 +1,40 @@
+﻿@model FantasySoccer.Models.ViewModels.SimulationViewModel
+@{
+    var modalId = "myCustomModal";
+}
+
+<div class="form-row pt-3 align-items-center">
+    <div class="col-6 p-0 text-center">
+        @Model.TournamentName
+    </div>
+    <div class="col-auto p-0 text-center">
+        Round:
+    </div>
+    <div class="col-auto">
+        @Html.DropDownListFor(
+            x => x.CurrentRound, Model.Rounds,
+            new
+                 {
+                @class = "form-control",
+                @id = "slt-round",
+                data_tournament_id = Model.TournamentId,
+                data_current_round = Model.CurrentRound,
+                @onchange = $"simulation.onChangeRound(event)"
+            }
+        )
+    </div>
+    <div class="col-auto">
+        <a id="btn-simulate" class="btn btn-southworks" style="color: white" onclick="simulation.simulateRound()">Simulate</a>
+    </div>
+</div>
+
+<div id="@modalId"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            createCustomModal("@modalId");
+        });
+    </script>
+    <script src="~/js/admin/simulation.js" asp-append-version="true"></script>
+}

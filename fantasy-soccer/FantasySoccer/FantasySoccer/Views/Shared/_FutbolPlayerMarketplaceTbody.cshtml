@@ -1,0 +1,18 @@
+﻿@model FantasySoccer.Models.ViewModels.MarketPlaceItems
+@{
+    var modalId = @ViewData["ModalId"] as string;
+}
+
+<tr>
+    <td class="align-middle">@Model.FutbolPlayer.GetFullName()</td>
+    <td class="align-middle">@Model.FutbolTeamName</td>
+    <td class="align-middle">@Model.FutbolPlayer.Position</td>
+    <td class="align-middle">@String.Format("{0:yyyy-MM-dd}", Model.FutbolPlayer.Birthdate)</td>
+    <td class="align-middle">$ @Model.FutbolPlayer.Price</td>
+    <td class="align-middle text-center">
+        @if (!Model.UserTeamContainsPlayer)
+        {
+            <button class="btn btn-southworks btn-sm" id="@Model.FutbolPlayer.ID" onclick='marketplace.buyPlayer(@Html.Raw(Json.Serialize(Model.FutbolPlayer)), "@modalId")'>Buy</button>
+        }
+    </td>
+</tr>

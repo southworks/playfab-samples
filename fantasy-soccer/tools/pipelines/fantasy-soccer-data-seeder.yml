@@ -1,0 +1,36 @@
+trigger:
+- none
+
+pr:
+- none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: 'fantasy-soccer-provisioning-script-VG'
+- group: 'fantasy-soccer-data-seeder-VG'
+- group: 'fantasy-soccer-web-app-settings'
+- group: 'fantasy-soccer-service-principal'
+- name: databasename
+  value: 'db-$(ProjectName)-$(Environment)'
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: $(SpName)
+    ScriptType: 'InlineScript'
+    azurePowerShellVersion: 'LatestVersion'
+    Inline: |
+      az login --service-principal --username $env:MAPPED_APP_ID --password $env:MAPPED_SECRET --tenant $env:MAPPED_TENANT_ID
+  env:
+    MAPPED_APP_ID: $(AppId)
+    MAPPED_SECRET: $(Secret)
+    MAPPED_TENANT_ID: $(TenantId)
+  displayName: 'Login with Service Principal'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'run'
+    projects: '$(project-folder-path)/$(project-name)'
+    arguments: '--endpointUri $(CosmosDB__EndpointUri) --primaryKey $(CosmosDB__PrimaryKey) --titleId $(PlayFabTitleId) --developerSecretKey $(PlayFabSecretKey) --catalogName $(playfab-catalog-name) --storeName $(playfab-store-name) --currency $(playfab-currency) --futbolTeamsAmount $(futbol-teams-amount) --isHomeAway $(is-home-away) --teamStartersAmount $(team-starters-amount) --teamSubsAmount $(team-subs-amount) --tournamentsAmount $(tournaments-amount) --userTeamsAmount $(user-teams-amount) --databaseName $(databasename) --playFabId $(playfabId)'
+  displayName: 'Run data-seeder'

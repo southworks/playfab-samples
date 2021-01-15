@@ -1,0 +1,67 @@
+﻿@model FantasySoccer.Models.Authentication.SignIn
+
+@{
+    ViewBag.Title = "Sign In";
+}
+
+@using (Html.BeginForm("SignIn", "Auth", FormMethod.Post, new { @class = "" }))
+{
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 offset-md-3">
+            <h3>Sign In</h3>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <div class="col-md-6 offset-md-3">
+            <div class="form-group">
+                <span class="text-danger">@ViewBag.ErrorMessage</span>
+            </div>
+        </div>
+    }
+    <div class="col-md-6 offset-md-3" style="padding-left: 8px">
+        <div class="form-group">
+            <input type="submit" value="Sign In" class="btn btn-southworks" />
+            <a class="create-account-link" asp-controller="Auth" asp-action="SignUp">Do you have an account? Sign up.</a>
+        </div>
+    </div>
+}
+<div class="row" style="margin-top: 10px;">
+    <div class="col-md-6 offset-md-3">
+        <hr class="sign-in-separator">
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+    <div class="col-12 text-center">
+        Or sign in with
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+    <div class="offset-3 col-6">
+        <div class="row">
+            <div class="offset-md-2 col-md-8 offset-xl-3 col-xl-6">
+                <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn" class="btn btn-light btn-sm ms-login-link" aria-label="Sign in with Microsoft" data-toggle="tooltip" data-placement="bottom" title="Sign in with Microsoft">
+                    <img alt="Sign in with Microsoft" class="img-fluid ms-login-button-logo" src="/img/microsoft-signin-logo.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

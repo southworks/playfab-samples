@@ -1,0 +1,107 @@
+﻿@model FantasySoccer.Models.ViewModels.CurrentRoundViewModel
+@{
+    var modalId = "matchDayManagementModal";
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">Download matchday</div>
+            <div class="card-body-southworks">
+                @using (Html.BeginForm("DownloadMatchDay", "Admin", FormMethod.Post))
+                {
+                    <button class="btn btn-southworks" type="submit">
+                        Run
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">Upload matchday</div>
+            <div class="card-body-southworks">
+                <label id="label-upload" for="myFile" class="btn btn-southworks label-input-file">Run</label>
+                <input type="file" id="myFile" name="myFile" onchange='management.uploadEntity("@modalId", "matchday")' class="inputfile" />
+                <div class="spinner-group">
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                    <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px; margin-bottom: 10px;">
+    <div class="col-sm-5">
+        <div id="tournament" data-id="@Model.TournamentId" data-number-of-rounds="@Model.NumberOfRounds">
+            @Model.TournamentName
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <span id="displayed-round" data-value="@Model.CurrentRound">
+            Round: @Model.CurrentRound
+        </span>
+        <span id="current-round" data-value="@Model.CurrentRound" class="badge badge-pill badge-balance">
+            Current
+        </span>
+    </div>
+    <div class="col-sm-3">
+        <div class="btn-group">
+            <button id="button-previews" type="button" class="btn btn-southworks" onclick='management.showPreviewsRound("@modalId")'>
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button id="button-next" type="button" class="btn btn-southworks" onclick='management.showNextRound("@modalId")'>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="spinner-group" id="navigation-spinner">
+            <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+            <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+            <div class="spinner-grow text-southworks spinner-grow-sm"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row card lineup-card">
+    <table class="table table-hover table-borderless">
+        <thead class="thead-southworks-orange">
+            <tr>
+                <th class="align-middle">Local</th>
+                <th class="align-middle">Local Goals</th>
+                <th class="align-middle">Visitor</th>
+                <th class="align-middle">Visitor Goals</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            @foreach (var match in Model.Matches)
+            {
+                <tr>
+                    <td class="align-middle">@match.LocalFutbolTeamName</td>
+                    <td class="align-middle">@match.LocalGoals</td>
+                    <td class="align-middle">@match.VisitorFutbolTeamName</td>
+                    <td class="align-middle">@match.VisitorGoals</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div id="@modalId"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            createCustomModal("@modalId");
+        });
+    </script>
+
+    <script src="~/js/admin/management.js" asp-append-version="true"></script>
+}

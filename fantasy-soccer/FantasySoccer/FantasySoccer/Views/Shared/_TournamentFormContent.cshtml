@@ -1,0 +1,19 @@
+﻿@model FantasySoccer.Models.ViewModels.TournamentManagementViewModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@Html.HiddenFor(m => m.Id)
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input id="Name" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="StartDate" class="control-label"></label>
+    <input asp-for="StartDate" class="form-control" />
+    <span asp-validation-for="StartDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="EndDate" class="control-label"></label>
+    <input asp-for="EndDate" class="form-control" />
+    <span asp-validation-for="EndDate" class="text-danger"></span>
+</div>

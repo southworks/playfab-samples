@@ -6,6 +6,8 @@ This repository contains complete working samples that demonstrate best-practice
 
 | Sample | PlayFab features |
 | - | - |
+| [Fantasy Soccer Web Application][fantasy-soccer] | OpenID/Playfab Login, Economy, Inventory management, Automation |
+| [PlayFab Azure B2C integration using custom policies][aadb2c-custom-policy-api-login] | Custom ID login/registration |
 |[Multiplayer Tic-Tac-Toe](#multiplayer-tic-tac-toe) | Matchmaking Queues, Shared Group, Login |
 |[P2P Multiplayer Tic-Tac-Toe](#p2p-multiplayer-tic-tac-toe) | Matchmaking Queues, PlayFab Party, Login |
 
@@ -54,6 +56,8 @@ This repository is covered under the [MIT License](./LICENSE).
 <!-- Internal links -->
 [multiplayer-tic-tac-toe]: ./multiplayer-tic-tac-toe
 [p2p-tic-tac-toe]: ./p2p-tic-tac-toe
+[aadb2c-custom-policy-api-login]: ./aadb2c-custom-policy-api-login/
+[fantasy-soccer]: ./fantasy-soccer
 
 <!-- External links -->
 [azure-main-page]: https://azure.microsoft.com/

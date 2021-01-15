@@ -1,0 +1,74 @@
+﻿@model FantasySoccer.Models.ViewModels.TournamentManagementViewModel
+
+@{
+    var modalId = Model.Result != null ? "tournamentManagementModal" : null;
+    var action = "";
+    if (string.IsNullOrWhiteSpace(Model.Id))
+    {
+        ViewData["Title"] = "Create Tournament";
+        action = "CreateTournament";
+    }
+    else
+    {
+        ViewData["Title"] = "Tournament Management";
+        action = "TournamentManagement";
+    }
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.Id))
+{
+    <div class="row">
+        <div class="col-12 text-right">
+            <a class="btn btn-southworks" asp-action="CreateTournament">Create New</a>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        @using (Html.BeginForm(@action, "Admin", FormMethod.Post))
+        {
+            <partial name="_TournamentFormContent" model="Model" />
+            <div class="form-group">
+                <a class="btn btn-southworks btn-swap-player" style="color: white" href='~/Admin'>Back</a>
+                <input id="btn-save-tournament-changes" type="submit" value="Save" class="float-right btn btn-southworks" disabled />
+            </div>
+        }
+    </div>
+</div>
+
+@if (modalId != null)
+{
+    <div id="@modalId"></div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input').change(function () {
+                $("#btn-save-tournament-changes").removeAttr("disabled");
+            });
+            if ($("#@(modalId ?? "Dummy")").length) {
+                updatingStatusCode = "@Model?.Result?.StatusCode";
+                let title = "";
+                switch (updatingStatusCode) {
+                    case "OK":
+                        title = "Create Tournament";
+                        break;
+                    default:
+                        title = "Error";
+                }
+
+                createCustomModal("@modalId");
+                setCustomModalData("@modalId", title, "@Model?.Result?.Message");
+                showCustomModal("@modalId");
+            }
+        });
+    </script>
+}

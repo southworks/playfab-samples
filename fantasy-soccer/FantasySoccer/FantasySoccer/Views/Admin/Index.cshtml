@@ -1,0 +1,27 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <a href="@Url.Action("Simulation","Admin")" data-toggle="tooltip" title="Simulation module"><i class="fas fa-brain"></i> Simulation</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <a href="@Url.Action("TournamentManagement","Admin")" data-toggle="tooltip" title="Manage the Fantasy-Soccer tournament"><i class="fas fa-futbol"></i> Tournament Management</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <a href="@Url.Action("MatchDayScheduling","Admin")" data-toggle="tooltip" title="Manage the matchday tournament"><i class="fas fa-futbol"></i> Matchday Scheduling</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mx-auto">
+            <a href="@Url.Action("DataManagement","Admin")" data-toggle="tooltip" title="Manage data"><i class="fas fa-user-friends"></i> Data Management</a>
+        </div>
+    </div>
+</div>

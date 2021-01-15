@@ -1,0 +1,90 @@
+﻿@using FantasySoccer.Models.ViewModels;
+@model MarketplaceViewModel
+
+@{
+    var modalId = "myCustomModal";
+    var previousPage = Model.CurrentPage < 1 ? 1 : Model.CurrentPage - 1;
+    var nextPage = Model.CurrentPage >= Model.TotalPages ? Model.CurrentPage : Model.CurrentPage + 1;
+    var searchedFirstNamePlayer = ViewBag.FirstName?? string.Empty;
+    var searchedLastNamePlayer = ViewBag.LastName ?? string.Empty;
+}
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <h1>@ViewBag.Title</h1>
+    </div>
+</div>
+<div class="row card lineup-card vertical-scrollable">
+    <div class="table-responsive">
+        <table class="table table-hover table-borderless table-striped table-sm">
+            <thead class="thead-southworks-orange">
+                <tr>
+                    <th class="align-middle">Player</th>
+                    <th class="align-middle">Team</th>
+                    <th class="align-middle">Position</th>
+                    <th class="align-middle">Birthdate</th>
+                    <th class="align-middle">Price</th>
+                    <th class="align-middle"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @using (Html.BeginForm("Index", "Marketplace", FormMethod.Post))
+                {
+                    <tr>
+                        <td class="align-middle" colspan="2">
+                            <input type="text" class="form-control form-control-sm" id="player" placeholder="First name" name="searchedFirstNamePlayer" value="@searchedFirstNamePlayer">
+                        </td>
+                        <td class="align-middle" colspan="3">
+                            <input type="text" class="form-control form-control-sm" id="player" placeholder="Last name" name="searchedLastNamePlayer" value="@searchedLastNamePlayer">
+                        </td>
+                        <td class="align-middle text-center" colspan="1">
+                            <input type="submit" id="btn-search-marketplace" value="Search" class="btn btn-southworks btn-sm" />
+                        </td>
+                    </tr>
+                }
+                @foreach (var player in Model.FutbolPlayers)
+                {
+                    <partial name="_FutbolPlayerMarketplaceTbody" model="new MarketPlaceItems { UserTeamContainsPlayer = player.UserTeamContainsPlayer, FutbolPlayer = player.FutbolPlayer, FutbolTeamName = player.FutbolTeamName }" view-data='new ViewDataDictionary(ViewData) { { "ModalId", @modalId } }' />
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@if (Model.TotalPages>0)
+{
+    <div class="row mt-md-2">
+        <div class="col-12 d-flex justify-content-center" style="text-align:center">
+            <ul class="pagination">
+                <li class="page-item"><text><a class="page-link" href="?page=1&searchedFirstNamePlayer=@searchedFirstNamePlayer&searchedLastNamePlayer=@searchedLastNamePlayer">@("<<")</a></li>
+                <li class="@(1 == Model.CurrentPage ? "page-item disabled" : "page-item")"><a class="page-link" href="?page=@previousPage&searchedFirstNamePlayer=@searchedFirstNamePlayer&searchedLastNamePlayer=@searchedLastNamePlayer">@("<")</a></li>
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")"><a class="page-link" href="?page=@i&searchedFirstNamePlayer=@searchedFirstNamePlayer&searchedLastNamePlayer=@searchedLastNamePlayer">@i</a></li>
+                }
+                <li class="@(Model.TotalPages == Model.CurrentPage ? "page-item disabled" : "page-item")"><a class="page-link" href="?page=@nextPage&searchedFirstNamePlayer=@searchedFirstNamePlayer&searchedLastNamePlayer=@searchedLastNamePlayer">></a></li>
+                <li class="page-item"><a class="page-link" href="?page=@Model.TotalPages&searchedFirstNamePlayer=@searchedFirstNamePlayer&searchedLastNamePlayer=@searchedLastNamePlayer">>></a></li>
+            </ul>
+        </div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(searchedFirstNamePlayer) || !string.IsNullOrEmpty(searchedLastNamePlayer))
+{
+    <div class="row mt-md-2">
+        <div class="col-12 d-flex justify-content-center" style="text-align:center">
+            <a class="btn btn-southworks btn-swap-player" style="color: white" href='~/MarketPlace'>All Football Players</a>
+        </div>
+    </div>
+}
+
+
+
+<div id="@modalId"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            createCustomModal("@modalId");
+        });
+    </script>
+}
+<script src="~/js/marketplace/marketplace.js"></script>

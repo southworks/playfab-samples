@@ -1,0 +1,9 @@
+﻿@model FantasySoccer.Schema.Models.UserPlayerStatisticItem
+<tr>
+    <td class="align-middle"><b>@Model.Description</b></td>
+    <td class="align-middle">@Model.Score pts</td>
+    @if (Model.Round != 0)
+    {
+        <td class="align-middle"> @Model.Round</td>
+    }
+</tr>    

@@ -1,0 +1,34 @@
+﻿@using FantasySoccer.Helpers
+@{
+    var greetings = string.IsNullOrWhiteSpace(User.Identity.Name) ? "Hello!" : User.Identity.Name;
+    var isMsAuth = User.HasClaim(Constants.Authentication.SchemaClaim, Constants.Authentication.MicrosoftSchema);
+}
+
+<ul class="navbar-nav">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <span class="navbar-text">@greetings</span>
+            <partial name="_BudgetPartial" />
+        </li>
+        <li class="nav-item">
+            @if (isMsAuth)
+            {
+                <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut" class="nav-link">Sign out</a>
+            }
+            else
+            {
+                <a class="nav-link" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+            }
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Auth" asp-action="SignIn">Sign in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Auth" asp-action="SignUp">Sign up</a>
+        </li>
+    }
+</ul>
