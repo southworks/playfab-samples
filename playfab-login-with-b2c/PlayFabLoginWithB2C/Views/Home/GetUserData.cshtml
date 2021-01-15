@@ -1,0 +1,19 @@
+﻿@model Dictionary<string, string>;
+
+@if (@Model != null)
+{
+    <div class="home-content">
+        <span class="home-text my-5">
+            <h3>User data</h3>
+            <table class="offset-md-3 col-md-6 table table-borderless">
+                @foreach (var fact in Model)
+                {
+                    <tr>
+                        <td>@fact.Key</td>
+                        <td>@fact.Value</td>
+                    </tr>
+                }
+            </table>
+        </span>
+    </div>
+}

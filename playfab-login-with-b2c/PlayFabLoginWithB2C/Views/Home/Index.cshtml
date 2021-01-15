@@ -1,0 +1,20 @@
+﻿@model PlayFabLoginWithB2C.Models.UserData;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="home-content">
+    <span class="home-text my-5">
+        <h3 class="py-5">Integrating Azure AD B2C as identity management service in PlayFab</h3>
+        <p>
+            This sample demonstrates how to integrates Azure AD B2C as the identity management service to login in PlayFab.
+            You can find the source code and documentation about the implementation <a href="https://github.com/southworks/playfab/tree/integrate-b2c-with-playfab/main/playfab-login-with-b2c">here</a>.
+        </p>
+        <p>
+            To login in PlayFab through Azure B2C clicks the "Sign in" link, in the upper right corner.
+            That will take you to the login form in B2C, once sign in the ID token received is used to login in PlayFab, which returns a session ticket.
+            It is used to consume the PlayFab API, as is made when the button "GetUserData" is clicked.
+            Once logged you can see your PlayFabID along with your name in the navigation bar.
+        </p>
+    </span>
+</div>
